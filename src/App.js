@@ -1,43 +1,47 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { connect } from 'react-redux'
+
 
 class App extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            backend: 'backend-data'
-        }
-    }
-
-    componentDidMount() {
-        const url = `http://localhost:3001/categories`;
-        console.log('fetching from url', url);
-        fetch(url, { headers: { 'Authorization': '8675309' },
-            credentials: 'include' } )
-            .then( (res) => { return(res.text()) })
-            .then((data) => {
-                this.setState({backend:data});
-            });
-    }
 
     render() {
         return (
             <div className="App">
-                <div className="App-header">
-                    <img src={logo} className="App-logo" alt="logo" />
-                    <h2>Welcome to React</h2>
+                <div class="wrapper">
+                    <div class="box navbox">
+                        <div class="nav">
+                            <div><a href="">navlink</a></div>
+                            <div><a href="">navlink</a></div>
+                            <div><a href="">navlink</a></div>
+                            <div><a href="">navlink</a></div>
+                            <div><a href="">navlink</a></div>
+                            <div><a href="">navlink</a></div>
+                        </div>
+                    </div>
+                    <div class="vbox"></div>
+                    <div class="title-box">R</div>
+                    <div class="letter-box title-box2">eadable</div>
+
+                    <div class="content-location">
+                        <div class="post-box">
+
+                        </div>
+
+                    </div>
+
                 </div>
-                <p className="App-intro">
-                    To get started, edit <code>src/App.js</code> and save to reload.
-                </p>
-                <p>
-                    Talking to the backend yields these categories: <br/>
-                    {this.state.backend}
-                </p>
+
             </div>
         );
     }
 }
 
-export default App;
+
+function mapStateToProps(){
+    return {
+
+    }
+}
+
+
+export default connect(mapStateToProps())(App);

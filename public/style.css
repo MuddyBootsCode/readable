@@ -32,25 +32,21 @@ a {
     text-decoration: none;
 }
 
-.navbox {
+.box1 {
     grid-row: 2;
     grid-column: 1 / -1;
     background-color: black;
     z-index: 20;
 }
 
-.vbox {
+.box2 {
     grid-row: 1/ -1;
     grid-column: 2;
     margin: 10px;
     border: solid black;
-    border-radius: 5px;
-    padding: 20px;
-    font-size: 2em;
-    background-color: #ccc;
 }
 
-.title-box2 {
+.box4 {
     text-decoration: underline;
 }
 
