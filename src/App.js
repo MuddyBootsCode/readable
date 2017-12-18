@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
+import Post from './components/Post'
 
 
 class App extends Component {
@@ -7,30 +8,26 @@ class App extends Component {
     render() {
         return (
             <div className="App">
-                <div class="wrapper">
-                    <div class="box navbox">
-                        <div class="nav">
-                            <div><a href="">navlink</a></div>
-                            <div><a href="">navlink</a></div>
-                            <div><a href="">navlink</a></div>
-                            <div><a href="">navlink</a></div>
-                            <div><a href="">navlink</a></div>
-                            <div><a href="">navlink</a></div>
+                <div classname="wrapper">
+                    <div classname="box navbox">
+                        <div classname="nav">
+                            <div><a href="">All Posts</a></div>
+                            <div><a href="">Udacity</a></div>
+                            <div><a href="">React</a></div>
+                            <div><a href="">Redux</a></div>
                         </div>
                     </div>
-                    <div class="vbox"></div>
-                    <div class="title-box">R</div>
-                    <div class="letter-box title-box2">eadable</div>
+                    <div classname="vbox"></div>
+                    <div classname="title-box">R</div>
+                    <div classname="letter-box title-box2">eadable</div>
+                    <div classname="content-location">
+                        <ol classname="post-box">
+                            {
 
-                    <div class="content-location">
-                        <div class="post-box">
-
-                        </div>
-
+                            }
+                        </ol>
                     </div>
-
                 </div>
-
             </div>
         );
     }
