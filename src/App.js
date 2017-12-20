@@ -15,6 +15,8 @@ class App extends Component {
     componentDidMount(){
         this.fetchData((posts) => {
             this.setState({ posts })
+            console.log(this.state)
+            console.log(posts)
         })
     }
 
@@ -24,7 +26,7 @@ class App extends Component {
                 <div className="wrapper">
                     <div className="box navbox">
                         <div className="nav">
-                            <div><a href="">All Posts</a></div>
+                            <div><a href="">All</a></div>
                             <div><a href="">Udacity</a></div>
                             <div><a href="">React</a></div>
                             <div><a href="">Redux</a></div>

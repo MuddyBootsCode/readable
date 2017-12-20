@@ -16,6 +16,7 @@ export function fetchPosts() {
 
     return (dispatch) => {
         request.then(({data}) => {
+            console.log(data);
             dispatch({type: 'FETCH_POSTS', payload: data})
         })
     }
