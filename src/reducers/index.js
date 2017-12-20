@@ -2,9 +2,8 @@ import {
     FETCH_POSTS
 } from "../actions";
 
-const initialState = {}
 
-export default function blogPosts (state = initialState, action) {
+export default function blogPosts (state = [], action) {
 
     switch (action.type) {
         case FETCH_POSTS :
@@ -13,3 +12,4 @@ export default function blogPosts (state = initialState, action) {
             return state;
     }
 }
+
