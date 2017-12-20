@@ -1,16 +1,9 @@
 import React, { Component } from 'react'
-import { fetchPosts } from './actions/index'
-
-
+import { fetchPostsThunk } from './actions/index'
+import { connect } from 'react-redux'
 
 
 class App extends Component {
-
-    state = {}
-
-    fetchData = () => {
-        fetchPosts()
-    }
 
     componentDidMount(){
         this.fetchData((posts) => {
@@ -18,6 +11,10 @@ class App extends Component {
             console.log(this.state)
             console.log(posts)
         })
+    }
+
+    fetchData = () => {
+        this.props.fetchPostsThunk()
     }
 
     render() {
@@ -48,13 +45,6 @@ class App extends Component {
     }
 }
 
-
-// function mapStateToProps(){
-//     return {
-//
-//     }
-// }
-//
-//
-// export default connect(mapStateToProps())(App);
-export default App
+const mapStateToProps = ({ posts }) => ({ posts})
+const mapDispatchToProps = {fetchPostsThunk}
+export default connect(mapStateToProps, mapDispatchToProps)(App);

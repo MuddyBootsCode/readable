@@ -11,13 +11,13 @@ const api = axios.create({
     }
 })
 
-export function fetchPosts() {
-    const request = api.get("/posts")
-
-    return (dispatch) => {
-        request.then(({data}) => {
-            console.log(data);
-            dispatch({type: 'FETCH_POSTS', payload: data})
-        })
-    }
+export function fetchPostsThunk() {
+    return dispatch =>
+        api
+            .get('/posts')
+            .then(response => response.data)
+            .then(
+                data => dispatch({type: 'FETCH_POSTS', payload: data}),
+                error => console.error(error)
+            )
 }
