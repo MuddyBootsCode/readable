@@ -1,30 +1,43 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux'
-import Post from './components/Post'
+import React, { Component } from 'react'
+import { fetchPosts } from './actions/index'
+
+
 
 
 class App extends Component {
 
+    state = {}
+
+    fetchData = () => {
+        fetchPosts()
+    }
+
+    componentDidMount(){
+        this.fetchData((posts) => {
+            this.setState({ posts })
+        })
+    }
+
     render() {
         return (
             <div className="App">
-                <div classname="wrapper">
-                    <div classname="box navbox">
-                        <div classname="nav">
+                <div className="wrapper">
+                    <div className="box navbox">
+                        <div className="nav">
                             <div><a href="">All Posts</a></div>
                             <div><a href="">Udacity</a></div>
                             <div><a href="">React</a></div>
                             <div><a href="">Redux</a></div>
                         </div>
                     </div>
-                    <div classname="vbox"></div>
-                    <div classname="title-box">R</div>
-                    <div classname="letter-box title-box2">eadable</div>
-                    <div classname="content-location">
-                        <ol classname="post-box">
-                            {
+                    <div className="vbox"></div>
+                    <div className="title-box">R</div>
+                    <div className="letter-box title-box2">eadable</div>
+                    <div className="content-location">
+                        <ol className="post-box">
 
-                            }
+
+
                         </ol>
                     </div>
                 </div>
@@ -34,11 +47,12 @@ class App extends Component {
 }
 
 
-function mapStateToProps(){
-    return {
-
-    }
-}
-
-
-export default connect(mapStateToProps())(App);
+// function mapStateToProps(){
+//     return {
+//
+//     }
+// }
+//
+//
+// export default connect(mapStateToProps())(App);
+export default App

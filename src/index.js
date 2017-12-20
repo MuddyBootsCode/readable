@@ -1,18 +1,11 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './App.css';
-import App from './App';
-import registerServiceWorker from './registerServiceWorker';
-import { createStore, applyMiddleware} from 'redux'
-import thunk from 'redux-thunk'
-import reducer from './reducers'
+import React from 'react'
+import ReactDOM from 'react-dom'
+import './App.css'
+import App from './App'
+import registerServiceWorker from './registerServiceWorker'
 import { Provider } from 'react-redux'
+import store from './store'
 
-const store = createStore(
-    reducer,
-    applyMiddleware(thunk),
-    window.__REDUX_DEVTOOLS_EXTENSION__&& window.__REDUX_DEVTOOLS_EXTENSION__()
-)
 
 ReactDOM.render(
     <Provider store={store}>
@@ -21,4 +14,4 @@ ReactDOM.render(
         , document.getElementById('root'));
 registerServiceWorker();
 
-export default store;
+

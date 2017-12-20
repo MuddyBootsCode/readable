@@ -1,22 +1,14 @@
 import {
-    CREATE_POST,
-    EDIT_POST,
-    DELETE_POST
+    FETCH_POSTS
 } from "../actions";
 
-const initialState = {
-
-}
+const initialState = {}
 
 export default function blogPosts (state = initialState, action) {
 
     switch (action.type) {
-        case CREATE_POST :
-            return {}
-        case EDIT_POST :
-            return {}
-        case DELETE_POST :
-            return {}
+        case FETCH_POSTS :
+            return action.data
         default :
             return state;
     }

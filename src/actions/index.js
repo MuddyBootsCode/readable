@@ -1,22 +1,21 @@
-export const CREATE_POST = 'CREATE_POST'
-export const DELETE_POST = 'DELETE_POST'
-export const EDIT_POST = 'EDIT_POST'
+import axios from 'axios'
 
-export function createPost({}) {
-    return{
-        type: CREATE_POST,
+export const FETCH_POSTS = "FETCH_POSTS"
+
+const api = axios.create({
+    headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json',
+        Authorization: 'whatever'
     }
-    
-}
+})
 
-export function deletePost({}) {
-    return {
-        type: DELETE_POST,
-    }
-}
+export function fetchPosts() {
+    const request = api.get("http://localhost:3001/posts")
 
-export function editPost({}) {
-    return {
-        type: EDIT_POST,
+    return (dispatch) => {
+        request.then(({data}) => {
+            dispatch({type: 'FETCH_POSTS', payload: data})
+        })
     }
 }
