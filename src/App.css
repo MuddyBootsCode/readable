@@ -119,6 +119,8 @@ a {
 }
 
 .post-footer {
+    display: flex;
+    justify-content: space-evenly;
     border-top: solid black;
     margin-top: 5px;
     background-color: #ccc;

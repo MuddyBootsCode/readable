@@ -2,14 +2,16 @@ import React from 'react'
 
 export default function Post (props) {
 
+    const { post } = props
+
     return(
-           <li key={props.post.id}>
+           <li key={post.id}>
             <div className='post'>
-                <div className='post-header'>{props.post.title}</div>
+                <div className='post-header'>{post.title}</div>
                     <div className='post-content'>
-                        {props.post.body}
+                        {post.body}
                     </div>
-                <div className='post-footer'></div>
+                <div className='post-footer'>Votes {post.voteScore} Comments {post.commentCount}</div>
             </div>
            </li>
         )

@@ -13,11 +13,6 @@ import {
 export default function blogPosts (state = initialState, action) {
 
     switch (action.type) {
-        case FETCH_POSTS_START:
-            return {
-                ...state,
-                fetching: true
-            }
         case FETCH_POSTS :
             console.log(Object.keys(action.payload))
             console.log(action.payload)
