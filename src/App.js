@@ -35,7 +35,7 @@ class App extends Component {
                     <div className="letter-box title-box2">eadable</div>
                     <div className="content-location">
                         <div className="post-box">
-                            {this.props.fetched === false
+                            {this.props.fetching === true
                                 ? <Loading delay={200} type='spin' color='#F00' className='loading'/> :
                                 this.props.posts.map((post) => {
                                     return (
@@ -43,7 +43,6 @@ class App extends Component {
                                     )
                                 })
                             }
-
                         </div>
                     </div>
                 </div>
