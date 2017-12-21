@@ -1,17 +1,12 @@
-import axios from 'axios'
+import api from '../utils/api_utils'
 
 export const FETCH_POSTS = "FETCH_POSTS"
+export const FETCH_POSTS_START = "FETCH_POSTS_START"
+export const FETCH_POSTS_ERROR = "FETCH_POSTS_ERROR"
 
-const api = axios.create({
-    baseURL: "http://localhost:3001",
-    headers: {
-        'Content-Type': 'application/json',
-        Accept: 'application/json',
-        Authorization: 'whatever'
-    }
-})
 
-export function fetchPostsThunk() {
+
+export function fetchPosts() {
     return dispatch =>
         api
             .get('/posts')

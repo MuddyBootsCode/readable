@@ -126,6 +126,10 @@ a {
     text-align: center;
 }
 
+ul {
+    list-style: none;
+}
+
 /* ----------- iPhone 6, 6S, 7 and 8 ----------- */
 
 /* Portrait and Landscape */
