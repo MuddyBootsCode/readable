@@ -14,7 +14,7 @@ const initialState = {
     error: null
 }
 
-export default function (state = initialState, action) {
+export default function postReducer (state = initialState, action) {
 
     switch (action.type) {
         case FETCH_POSTS_START :
@@ -23,13 +23,11 @@ export default function (state = initialState, action) {
                 fetching: true
             }
         case FETCH_POSTS :
-            console.log(Object.keys(action.payload))
-            console.log(action.payload)
             return {
                 ...state,
                 fetched: true,
                 fetching: false,
-                posts: action.payload
+                posts: action.payload //.filter(post => !post.deleted)
             }
         case FETCH_POSTS_ERROR :
             return {
@@ -42,4 +40,6 @@ export default function (state = initialState, action) {
             return state;
     }
 }
+
+
 
