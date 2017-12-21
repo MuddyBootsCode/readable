@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { fetchPosts } from './actions/index'
 import { connect } from 'react-redux'
 import Post from './components/Post'
+import Loading from 'react-loading'
 
 
 class App extends Component {
@@ -33,8 +34,9 @@ class App extends Component {
                     <div className="title-box">R</div>
                     <div className="letter-box title-box2">eadable</div>
                     <div className="content-location">
-                        <ul className="post-box">
-                            {
+                        <div className="post-box">
+                            {this.props.fetched === false
+                                ? <Loading delay={200} type='spin' color='#F00' className='loading'/> :
                                 this.props.posts.map((post) => {
                                     return (
                                         <Post key={post.id} post={post} />
@@ -42,7 +44,7 @@ class App extends Component {
                                 })
                             }
 
-                        </ul>
+                        </div>
                     </div>
                 </div>
             </div>

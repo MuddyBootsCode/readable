@@ -1,10 +1,9 @@
 import {
-    FETCH_POSTS, FETCH_POSTS_ERROR, FETCH_POSTS_START
+    FETCH_POSTS, FETCH_POSTS_ERROR
 } from "../actions";
 
 
  const initialState = {
-    fetching: false,
     fetched: false,
     posts: [],
     error: null
@@ -18,14 +17,13 @@ export default function blogPosts (state = initialState, action) {
             console.log(action.payload)
             return {
                 ...state,
-                fetching: false,
                 fetched: true,
                 posts: action.payload
             }
         case FETCH_POSTS_ERROR :
             return {
                 ...state,
-                fetching: false,
+                fetched: false,
                 error: action.payload
             }
         default :
