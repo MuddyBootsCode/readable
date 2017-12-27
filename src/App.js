@@ -51,6 +51,11 @@ class App extends Component {
     }
 }
 
-const mapStateToProps = ({ posts }) => ({ posts })
+const mapStateToProps = (state) => {
+    return {
+        posts : state.posts.posts
+    }
+}
+
 const mapDispatchToProps = {fetchPosts}
 export default connect(mapStateToProps, mapDispatchToProps)(App);
