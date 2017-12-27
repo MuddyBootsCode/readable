@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { fetchPosts } from './actions/Posts'
-import { fetchComments} from "./actions/Comments";
 import { connect } from 'react-redux'
 import Post from './components/Post'
 import Loading from 'react-loading'
@@ -12,12 +11,11 @@ class App extends Component {
     state = {
 
         postModalOpen: false,
-        commentModalOpen: false,
 
     }
 
     openPostModal = () => this.setState(() => ({ postModalOpen: true }))
-    openCommentModal = () => this.setState(() => ({ commentModalOpen: true }))
+
 
     componentDidMount(){
         const {fetchPosts} = this.props
@@ -26,6 +24,9 @@ class App extends Component {
 
 
     render() {
+
+        const {postModalOpen, commentModalOpen} = this.state
+
         return (
             <div className="App">
                 <div className="wrapper">
@@ -46,7 +47,7 @@ class App extends Component {
                                 ? <Loading delay={200} type='spin' color='#000' className='loading'/> :
                                 this.props.posts.map((post) => {
                                     return (
-                                        <Post key={post.id} post={post} />
+                                        <Post key={post.id} post={post}/>
                                     )
                                 })
                             }

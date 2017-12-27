@@ -1,14 +1,18 @@
-import React from 'react'
+import React, { Component} from 'react'
+import { fetchComments } from '../actions/Comments'
+import { connect } from 'react-redux'
 import FaCaretUp from 'react-icons/lib/fa/caret-up'
 import FaCaretDown from 'react-icons/lib/fa/caret-down'
 import FaTimesCircleO from 'react-icons/lib/fa/times-circle-o'
 import FaStackExchange from 'react-icons/lib/fa/stack-exchange'
-import {fetchComments} from "../actions/Comments";
 
 
-export default function Post (props) {
+class Post extends Component {
 
-        const { post } = props
+
+    render() {
+
+        const { post } = this.props
 
         return (
 
@@ -49,9 +53,9 @@ export default function Post (props) {
             </div>
 
         )
+
     }
+}
 
-
-
-
+export default connect()(Post)
 
