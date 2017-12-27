@@ -4,7 +4,7 @@ import {
     FETCH_POSTS,
     FETCH_POSTS_ERROR
 
-} from "../actions";
+} from "../actions/Posts";
 
 
 const initialState = {
@@ -27,7 +27,7 @@ function postsReducer (state = initialState, action) {
                 ...state,
                 fetched: true,
                 fetching: false,
-                posts: action.payload //.filter(post => !post.deleted)
+                posts: action.payload.filter(post => !post.deleted)
             }
         case FETCH_POSTS_ERROR :
             return {

@@ -86,6 +86,8 @@ a {
 .post-box {
     display: flex;
     flex-direction: column;
+    /*align-items: center;*/
+    /*justify-content: center;*/
     height: 100%;
     min-width: 300px;
 }
@@ -93,6 +95,7 @@ a {
 .post {
     display:flex;
     flex-direction: column;
+    justify-content: center;
     overflow-wrap: break-word;
     overflow: auto;
     border: solid black;
@@ -102,7 +105,7 @@ a {
     margin: 15px 0px 15px 0px;
 }
 
-.post-content{
+.post-content {
     display: flex;
     flex: 1;
     flex-flow: wrap;
@@ -131,6 +134,16 @@ a {
 ul {
     list-style: none;
 }
+
+button {
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+    outline:none;
+}
+
 
 /* ----------- iPhone 6, 6S, 7 and 8 ----------- */
 

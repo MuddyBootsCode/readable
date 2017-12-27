@@ -10,7 +10,4 @@ const store = createStore(
 
 )
 
-console.log(store)
-console.log(store.getState())
-
 export default store

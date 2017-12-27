@@ -1,20 +1,27 @@
 import React, { Component } from 'react'
-import { fetchPosts } from './actions/index'
+import { fetchPosts } from './actions/Posts'
+import { fetchComments} from "./actions/Comments";
 import { connect } from 'react-redux'
 import Post from './components/Post'
 import Loading from 'react-loading'
+import FaPlusSquare from 'react-icons/lib/fa/plus-square'
 
 
 class App extends Component {
 
-    componentDidMount(){
-        this.fetchData((posts) => {
-            this.setState({ posts })
-        })
+    state = {
+
+        postModalOpen: false,
+        commentModalOpen: false,
+
     }
 
-    fetchData = () => {
-        this.props.fetchPosts()
+    openPostModal = () => this.setState(() => ({ postModalOpen: true }))
+    openCommentModal = () => this.setState(() => ({ commentModalOpen: true }))
+
+    componentDidMount(){
+        const {fetchPosts} = this.props
+        fetchPosts()
     }
 
 
@@ -36,13 +43,18 @@ class App extends Component {
                     <div className="content-location">
                         <div className="post-box">
                             {this.props.fetching === true
-                                ? <Loading delay={200} type='spin' color='#F00' className='loading'/> :
+                                ? <Loading delay={200} type='spin' color='#000' className='loading'/> :
                                 this.props.posts.map((post) => {
                                     return (
                                         <Post key={post.id} post={post} />
                                     )
                                 })
                             }
+                            <div className="post">
+                                <div className="post-content">
+                                    <FaPlusSquare size={40}/>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -53,9 +65,10 @@ class App extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        posts : state.posts.posts
+        posts : state.posts.posts,
+        fetching : state.posts.fetching
     }
 }
 
-const mapDispatchToProps = {fetchPosts}
+const mapDispatchToProps = { fetchPosts }
 export default connect(mapStateToProps, mapDispatchToProps)(App);
