@@ -25,7 +25,7 @@ class App extends Component {
 
     render() {
 
-        const {postModalOpen, commentModalOpen} = this.state
+        const {postModalOpen} = this.state
 
         return (
             <div className="App">

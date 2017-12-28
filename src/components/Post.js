@@ -1,4 +1,5 @@
 import React, { Component} from 'react'
+import Modal from 'react-modal'
 import { fetchComments } from '../actions/Comments'
 import { connect } from 'react-redux'
 import FaCaretUp from 'react-icons/lib/fa/caret-up'
@@ -8,6 +9,23 @@ import FaStackExchange from 'react-icons/lib/fa/stack-exchange'
 
 
 class Post extends Component {
+
+
+    state = {
+
+        commentsModalOpen: false ,
+    }
+
+    fetchPostComments = (postId) =>{
+        fetchComments(postId)
+        console.log(postId)
+    }
+
+    componentDidMount(){
+        const {fetchComments} = this.props
+        fetchComments()
+    }
+
 
 
     render() {
@@ -23,7 +41,7 @@ class Post extends Component {
                 </div>
                 <div className='post-footer'>
                     <div>
-                        Votes {post.voteScore}
+                        Votes: {post.voteScore}
                         <br/>
                         <button>
                             <FaCaretUp size={30}/>
@@ -34,10 +52,9 @@ class Post extends Component {
 
                     </div>
                     <div>
-                        Comments
+                        Comments: {post.commentCount}
                         <br/>
-                        {post.commentCount}
-                        <button>
+                        <button onClick={this.fetchPostComments(post.id)}>
                             <FaStackExchange size={30}/>
                         </button>
                     </div>
@@ -57,5 +74,12 @@ class Post extends Component {
     }
 }
 
-export default connect()(Post)
+const mapStateToProps = (state) => {
+    return {
+        comments: state.comments.comments,
+        fetching: state.comments.fetching
+    }
+}
+const mapDispatchToProps = ({fetchComments})
+export default connect(mapStateToProps, mapDispatchToProps)(Post)
 
