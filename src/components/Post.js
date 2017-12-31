@@ -21,7 +21,7 @@ class Post extends Component {
         console.log(postId)
     }
 
-    // componentDidMount(){
+    // componentWillReceiveProps(comments){
     //     const {fetchComments} = this.props
     //     fetchComments()
     // }

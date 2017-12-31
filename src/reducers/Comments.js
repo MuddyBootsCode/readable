@@ -25,7 +25,7 @@ export default function commentsReducer (state = initialState, action) {
                 ...state,
                 fetching: false,
                 fetched: true,
-                comments: action.comments.filter(comment => !comment.deleted)
+                comments: action.payload //.filter(comment => !comment.deleted)
             }
         case FETCH_COMMENTS_ERROR :
             return {
