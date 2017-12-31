@@ -23,6 +23,7 @@ export default function postsReducer (state = initialState, action) {
                 fetching: true
             }
         case FETCH_POSTS :
+            console.log(action.payload)
             return {
                 ...state,
                 fetched: true,

@@ -21,10 +21,10 @@ class Post extends Component {
         console.log(postId)
     }
 
-    componentDidMount(){
-        const {fetchComments} = this.props
-        fetchComments()
-    }
+    // componentDidMount(){
+    //     const {fetchComments} = this.props
+    //     fetchComments()
+    // }
 
 
 
@@ -54,7 +54,7 @@ class Post extends Component {
                     <div>
                         Comments: {post.commentCount}
                         <br/>
-                        <button onClick={this.fetchPostComments(post.id)}>
+                        <button onClick={() => this.fetchPostComments(post.id)}>
                             <FaStackExchange size={30}/>
                         </button>
                     </div>
