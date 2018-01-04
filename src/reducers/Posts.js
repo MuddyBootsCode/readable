@@ -1,7 +1,7 @@
 import {
 
     FETCH_POSTS_START,
-    FETCH_POSTS,
+    FETCH_POSTS_COMPLETE,
     FETCH_POSTS_ERROR
 
 } from "../actions/Posts";
@@ -22,7 +22,7 @@ export default function postsReducer (state = initialState, action) {
                 ...state,
                 fetching: true
             }
-        case FETCH_POSTS :
+        case FETCH_POSTS_COMPLETE :
             console.log(action.payload)
             return {
                 ...state,
