@@ -1,6 +1,6 @@
 import {
     FETCH_COMMENTS_START,
-    FETCH_COMMENTS,
+    FETCH_COMMENTS_COMPLETE,
     FETCH_COMMENTS_ERROR
 } from "../actions/Comments";
 
@@ -19,7 +19,7 @@ export default function commentsReducer (state = initialState, action) {
                 ...state,
                 fetching: true
             }
-        case FETCH_COMMENTS :
+        case FETCH_COMMENTS_COMPLETE :
             console.log(action.payload)
             return {
                 ...state,
