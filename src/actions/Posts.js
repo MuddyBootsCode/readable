@@ -7,11 +7,12 @@ export const FETCH_POSTS_ERROR = "FETCH_POSTS_ERROR"
 
 export function fetchPosts() {
     store.dispatch({type: 'FETCH_POSTS_START'})
-    return dispatch =>
+    return dispatch => {
         api
             .get('/posts')
             .then(response => response.data)
             .then(data => dispatch({type: 'FETCH_POSTS_COMPLETE', payload: data}))
             .catch(error => dispatch({type: 'FETCH_POSTS_ERROR', payload: error}))
 
+    }
 }

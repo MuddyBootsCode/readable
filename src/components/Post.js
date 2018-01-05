@@ -18,12 +18,12 @@ class Post extends Component {
 
     fetchPostComments = (postId) =>{
         fetchComments(postId)
-        console.log(postId)
+        console.log(postId + ' from inside posts')
     }
 
-    // componentWillReceiveProps(comments){
-    //     const {fetchComments} = this.props
-    //     fetchComments()
+    // componentwillMount(comments){
+    //     const {} = this.props
+    //
     // }
 
 
