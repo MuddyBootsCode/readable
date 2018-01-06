@@ -20,12 +20,12 @@ export default function commentsReducer (state = initialState, action) {
                 fetching: true
             }
         case FETCH_COMMENTS_COMPLETE :
-            console.log(action.payload)
+            console.log('dispatched payload from comments action = '+ action.payload)
             return {
                 ...state,
                 fetching: false,
                 fetched: true,
-                comments: action.comments //.filter(comment => !comment.deleted)
+                comments: action.payload//.filter(comment => !comment.deleted)
             }
         case FETCH_COMMENTS_ERROR :
             return {

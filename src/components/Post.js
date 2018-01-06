@@ -13,18 +13,19 @@ class Post extends Component {
 
     state = {
 
+        comments: [],
         commentsModalOpen: false ,
     }
 
     fetchPostComments = (postId) =>{
         fetchComments(postId)
-        console.log(postId + ' from inside posts')
+        console.log(postId + ' from inside post component')
     }
 
-    // componentwillMount(comments){
-    //     const {} = this.props
-    //
-    // }
+    componentDidMount(){
+        const {fetchComments} = this.props
+        fetchComments(this.props.post.id)
+    }
 
 
 

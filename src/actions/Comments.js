@@ -14,7 +14,7 @@ export const FETCH_COMMENTS_ERROR = 'FETCH_COMMENTS_ERROR'
 
 
 export function fetchComments(postId) {
-    console.log(postId + 'coming from action')
+    console.log('post Id coming from inside the comments action = ' + postId)
     store.dispatch({type: 'FETCH_COMMENTS_START'})
     return dispatch => {
 
