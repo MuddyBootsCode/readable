@@ -36,7 +36,7 @@ a {
     grid-row: 2;
     grid-column: 1 / -1;
     background-color: black;
-    z-index: 20;
+    z-index: 1;
 }
 
 .vbox {
@@ -151,6 +151,7 @@ button {
     right: 0px;
     bottom: 0px;
     background-color: rgba(255, 255, 255, 0.75);
+    z-index: 20;
 }
 
 .modal {
@@ -168,6 +169,11 @@ button {
     border-radius: 3px;
     box-shadow: 0 3px 8px 0 rgba(0,0,0,.24), 0 3px 12px 0 rgba(0,0,0,.12);
     min-width: 500px;
+
+}
+
+.ReactModal__Body--open {
+    overflow-y: hidden;
 }
 
 
@@ -197,9 +203,7 @@ and (-webkit-min-device-pixel-ratio: 2) {
 
 }
 
-.ReactModal__Body--open {
-    overflow-y: hidden;
-}
+
 
 /* Portrait */
 @media only screen

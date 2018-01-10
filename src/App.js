@@ -3,6 +3,7 @@ import { fetchPosts } from './actions/Posts'
 import { connect } from 'react-redux'
 import Post from './components/Post'
 import Loading from 'react-loading'
+import Modal from 'react-modal'
 import FaPlusSquare from 'react-icons/lib/fa/plus-square'
 
 
@@ -10,11 +11,11 @@ class App extends Component {
 
     state = {
 
-        openCommentsModal: false,
+        postModalOpen: false,
 
     }
 
-    openCommentsModal = () => this.setState(() => ({ postModalOpen: true }))
+    closePostsModal = () => this.setState(() => ({ postModalOpen: false }))
 
 
     componentDidMount(){
@@ -24,8 +25,6 @@ class App extends Component {
 
 
     render() {
-
-        const {postModalOpen} = this.state
 
         return (
             <div className="App">
@@ -53,12 +52,24 @@ class App extends Component {
                             }
                             <div className="post">
                                 <div className="post-content">
-                                    <FaPlusSquare size={40}/>
+                                    <button onClick={() => this.setState({postModalOpen: true})}>
+                                        <FaPlusSquare size={40}/>
+                                    </button>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+
+                <Modal
+                    className = "modal"
+                    overlayClassName = 'overlay'
+                    isOpen = {this.state.postModalOpen}
+                    onRequestClose = {this.closePostsModal}
+                    contentLabel = 'Modal'
+                >
+                   <h1>Posts Form</h1>
+                </Modal>
             </div>
         );
     }

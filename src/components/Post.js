@@ -8,6 +8,7 @@ import FaCaretDown from 'react-icons/lib/fa/caret-down'
 import FaTimesCircleO from 'react-icons/lib/fa/times-circle-o'
 import FaStackExchange from 'react-icons/lib/fa/stack-exchange'
 import FaPlusSquare from 'react-icons/lib/fa/plus-square'
+import FaEdit from 'react-icons/lib/fa/edit'
 
 
 class Post extends Component {
@@ -23,14 +24,13 @@ class Post extends Component {
 
         getComments(postId)
             .then((comments) => {
-                console.log(comments)
                 this.setState({ comments, commentsModalOpen: true })
             })
 
         console.log(postId + ' = postId from inside post component')
     }
 
-    openCommentsModal = () => this.setState(() => ({ commentsModalOpen: true }))
+
     closeCommentsModal = () => this.setState(() => ({commentsModalOpen: false}))
 
     render() {
@@ -71,6 +71,13 @@ class Post extends Component {
                         </button>
 
                     </div>
+                    <div>
+                        Edit
+                        <br/>
+                        <button>
+                            <FaEdit size={30}/>
+                        </button>
+                    </div>
                 </div>
 
                 <Modal
@@ -80,7 +87,6 @@ class Post extends Component {
                     onRequestClose = {this.closeCommentsModal}
                     contentLabel = 'Modal'
                 >
-
                         {
                             this.state.comments.map((comment) => {
                                 return (
@@ -88,22 +94,15 @@ class Post extends Component {
                                 )
                             })
                         }
-
                     <div className="post">
                         <div className="post-content">
-                            <FaPlusSquare size={40}/>
+                            <button>
+                                <FaPlusSquare size={40}/>
+                            </button>
                         </div>
                     </div>
-
-
-
                 </Modal>
             </div>
-
-
-
-
-
         )
 
     }
