@@ -7,6 +7,7 @@ import FaCaretUp from 'react-icons/lib/fa/caret-up'
 import FaCaretDown from 'react-icons/lib/fa/caret-down'
 import FaTimesCircleO from 'react-icons/lib/fa/times-circle-o'
 import FaStackExchange from 'react-icons/lib/fa/stack-exchange'
+import FaPlusSquare from 'react-icons/lib/fa/plus-square'
 
 
 class Post extends Component {
@@ -35,7 +36,6 @@ class Post extends Component {
     render() {
 
         const { post } = this.props
-        const { openCommentsModal, closeCommentsModal } = this.state
 
         return (
 
@@ -80,7 +80,7 @@ class Post extends Component {
                     onRequestClose = {this.closeCommentsModal}
                     contentLabel = 'Modal'
                 >
-                    <div>
+
                         {
                             this.state.comments.map((comment) => {
                                 return (
@@ -89,7 +89,14 @@ class Post extends Component {
                             })
                         }
 
+                    <div className="post">
+                        <div className="post-content">
+                            <FaPlusSquare size={40}/>
+                        </div>
                     </div>
+
+
+
                 </Modal>
             </div>
 
