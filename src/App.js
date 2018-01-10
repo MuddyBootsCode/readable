@@ -10,11 +10,11 @@ class App extends Component {
 
     state = {
 
-        postModalOpen: false,
+        openCommentsModal: false,
 
     }
 
-    openPostModal = () => this.setState(() => ({ postModalOpen: true }))
+    openCommentsModal = () => this.setState(() => ({ postModalOpen: true }))
 
 
     componentDidMount(){

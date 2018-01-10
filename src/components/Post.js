@@ -1,6 +1,7 @@
 import React, { Component} from 'react'
 import Modal from 'react-modal'
-import { fetchComments } from '../actions/Comments'
+import Comments from './Comments'
+import { getComments} from "../utils/api_utils";
 import { connect } from 'react-redux'
 import FaCaretUp from 'react-icons/lib/fa/caret-up'
 import FaCaretDown from 'react-icons/lib/fa/caret-down'
@@ -14,24 +15,27 @@ class Post extends Component {
     state = {
 
         comments: [],
-        commentsModalOpen: false ,
+        commentsModalOpen: false,
     }
 
-    fetchPostComments = (postId) =>{
-        fetchComments(postId)
-        console.log(postId + ' from inside post component')
+    fetchPostComments = (postId) => {
+
+        getComments(postId)
+            .then((comments) => {
+                console.log(comments)
+                this.setState({ comments, commentsModalOpen: true })
+            })
+
+        console.log(postId + ' = postId from inside post component')
     }
 
-    componentDidMount(){
-        const {fetchComments} = this.props
-        fetchComments(this.props.post.id)
-    }
-
-
+    openCommentsModal = () => this.setState(() => ({ commentsModalOpen: true }))
+    closeCommentsModal = () => this.setState(() => ({commentsModalOpen: false}))
 
     render() {
 
         const { post } = this.props
+        const { openCommentsModal, closeCommentsModal } = this.state
 
         return (
 
@@ -68,7 +72,30 @@ class Post extends Component {
 
                     </div>
                 </div>
+
+                <Modal
+                    className = "modal"
+                    overlayClassName = 'overlay'
+                    isOpen = {this.state.commentsModalOpen}
+                    onRequestClose = {this.closeCommentsModal}
+                    contentLabel = 'Modal'
+                >
+                    <div>
+                        {
+                            this.state.comments.map((comment) => {
+                                return (
+                                    <Comments key={comment.id} comment={comment}/>
+                                )
+                            })
+                        }
+
+                    </div>
+                </Modal>
             </div>
+
+
+
+
 
         )
 
@@ -77,10 +104,8 @@ class Post extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        comments: state.comments.comments,
-        fetching: state.comments.fetching
+
     }
 }
-const mapDispatchToProps = ({fetchComments})
-export default connect(mapStateToProps, mapDispatchToProps)(Post)
 
+export default connect(mapStateToProps, null)(Post)

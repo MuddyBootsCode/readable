@@ -9,4 +9,11 @@ export const api = axios.create({
     }
 })
 
+
+
+export function getComments(postId) {
+    return api.get(`/posts/${postId}/comments`)
+        .then(response => response.data)
+    }
+
 export default api
