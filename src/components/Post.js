@@ -1,7 +1,8 @@
 import React, { Component} from 'react'
 import Modal from 'react-modal'
 import Comments from './Comments'
-import { getComments} from "../utils/api_utils";
+import { fetchPostComments} from "../actions/Comments";
+import _ from 'lodash'
 import { connect } from 'react-redux'
 import FaCaretUp from 'react-icons/lib/fa/caret-up'
 import FaCaretDown from 'react-icons/lib/fa/caret-down'
@@ -13,22 +14,14 @@ import FaEdit from 'react-icons/lib/fa/edit'
 
 class Post extends Component {
 
-
     state = {
-
-        comments: [],
-        commentsModalOpen: false,
+        commentsModalOpen: false
     }
 
-    fetchPostComments = (postId) => {
-
-        getComments(postId)
-            .then((comments) => {
-                this.setState({ comments, commentsModalOpen: true })
-            })
-
-        console.log(postId + ' = postId from inside post component')
-    }
+   componentDidMount() {
+       const { post, dispatch } = this.props
+       dispatch(fetchPostComments(post.id))
+   }
 
 
     closeCommentsModal = () => this.setState(() => ({commentsModalOpen: false}))
@@ -59,7 +52,7 @@ class Post extends Component {
                     <div>
                         Comments: {post.commentCount}
                         <br/>
-                        <button onClick={() => this.fetchPostComments(post.id)}>
+                        <button onClick={() => this.setState({commentsModalOpen: true})}>
                             <FaStackExchange size={30}/>
                         </button>
                     </div>
@@ -88,7 +81,7 @@ class Post extends Component {
                     contentLabel = 'Modal'
                 >
                         {
-                            this.state.comments.map((comment) => {
+                            _.map(this.props.comments, comment => {
                                 return (
                                     <Comments key={comment.id} comment={comment}/>
                                 )
@@ -108,10 +101,11 @@ class Post extends Component {
     }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = ({ comments }) => {
     return {
 
+        comments: comments.comments
     }
 }
 
-export default connect(mapStateToProps, null)(Post)
+export default connect(mapStateToProps)(Post)

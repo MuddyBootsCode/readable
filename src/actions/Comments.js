@@ -10,11 +10,11 @@ export function fetchPostComments(postId) {
     }
 }
 
-export function fetchSingleComment(commentId) {
+export function fetchSingleComments(commentId) {
     return dispatch => {
         dispatch({type: 'FETCH_SINGLE_COMMENT_START'})
         api
-            .get(`/comments/${commentId}`)
+            .get(`post/comments/${commentId}`)
             .then(response => dispatch({type:'SINGLE_COMMENT_FETCHED', payload: response.data}))
             .catch(error => dispatch({type:'FETCH_SINGLE_COMMENT_ERROR', payload: error}))
     }
