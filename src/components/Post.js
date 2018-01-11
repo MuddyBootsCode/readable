@@ -80,7 +80,15 @@ class Post extends Component {
                     onRequestClose = {this.closeCommentsModal}
                     contentLabel = 'Modal'
                 >
-                        {
+
+                    { post.commentCount === 0 ? (
+                        <div className="post">
+                            <div className="post-content">
+                                <h1>No Comments, Be the first!</h1>
+                            </div>
+                        </div>
+                    )
+                        :
                             _.map(this.props.comments, comment => {
                                 return (
                                     <Comments key={comment.id} comment={comment}/>
