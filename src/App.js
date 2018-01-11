@@ -19,8 +19,7 @@ class App extends Component {
 
 
     componentDidMount(){
-        const {fetchPosts} = this.props
-        fetchPosts()
+        this.props.fetchPosts()
     }
 
 
