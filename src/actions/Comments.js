@@ -58,7 +58,6 @@ export function voteComment(commentId, vote) {
             .post(`/comments/${commentId}`, {option: vote})
             .then(response => dispatch({type:'COMMENT_VOTE', payload: response.data}))
             .catch(error => dispatch({type:'COMMENT_VOTE_ERROR', payload: error}))
-            .then(() => callback())
     }
 }
 export const FETCH_COMMENTS_START = 'FETCH_COMMENTS_START'
