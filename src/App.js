@@ -78,7 +78,8 @@ class App extends Component {
 const mapStateToProps = (state) => {
     return {
         posts : state.posts.posts,
-        fetching : state.posts.fetching
+        fetching : state.posts.fetching,
+        sortValue: state.posts.sortPosts
     }
 }
 
