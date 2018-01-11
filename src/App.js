@@ -5,6 +5,7 @@ import Post from './components/Post'
 import Loading from 'react-loading'
 import Modal from 'react-modal'
 import FaPlusSquare from 'react-icons/lib/fa/plus-square'
+import _ from 'lodash'
 
 
 class App extends Component {
@@ -43,7 +44,7 @@ class App extends Component {
                         <div className="post-box">
                             {this.props.fetching === true
                                 ? <Loading delay={200} type='spin' color='#000' className='loading'/> :
-                                this.props.posts.map((post) => {
+                                _.map(this.props.posts, post => {
                                     return (
                                         <Post key={post.id} post={post}/>
                                     )
