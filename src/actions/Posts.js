@@ -56,10 +56,10 @@ export function editPost (postInfo, callback) {
 export function deletePost (postId, callback) {
     return dispatch => {
         api
-            .delete(`/posts/${postId}`)
-            .then(response => dispatch({type:'POST_DELETED', payload: response.data}))
+            .delete(`/posts/${postId}`).then(() => callback())
+            .then(response => dispatch({type:'POST_DELETED', payload: response.data }))
             .catch(error => dispatch({type:'POST_DELETE_ERROR', payload: error}))
-            .then(() => callback())
+
     }
 }
 

@@ -1,7 +1,9 @@
 import React, { Component} from 'react'
+import { withRouter, Link } from 'react-router-dom'
 import Modal from 'react-modal'
 import Comments from './Comments'
-import { fetchPostComments} from "../actions/Comments";
+import { fetchPostComments } from "../actions/Comments";
+import { deletePost, postVote } from "../actions/Posts";
 import _ from 'lodash'
 import { connect } from 'react-redux'
 import FaCaretUp from 'react-icons/lib/fa/caret-up'
@@ -12,6 +14,7 @@ import FaPlusSquare from 'react-icons/lib/fa/plus-square'
 import FaEdit from 'react-icons/lib/fa/edit'
 
 
+
 class Post extends Component {
 
     state = {
@@ -19,8 +22,16 @@ class Post extends Component {
     }
 
    componentDidMount() {
-       const { post, dispatch } = this.props
-       dispatch(fetchPostComments(post.id))
+       const { post } = this.props
+       this.props.dispatch(fetchPostComments(post.id))
+   }
+
+   deleteButton(id) {
+       this.props.dispatch(
+           deletePost(id, () => {
+               this.props.history.push('/')
+           })
+       )
    }
 
 
@@ -28,7 +39,11 @@ class Post extends Component {
 
     render() {
 
-        const { post } = this.props
+        const { post, comments } = this.props
+
+        let sortedComments = _.filter(comments, { parentId: post.id, deleted: false })
+        console.log(sortedComments)
+
 
         return (
 
@@ -59,7 +74,7 @@ class Post extends Component {
                     <div>
                         Delete
                         <br/>
-                        <button>
+                        <button onClick={() => this.deleteButton(post.id)}>
                             <FaTimesCircleO size={30}/>
                         </button>
 
@@ -89,7 +104,7 @@ class Post extends Component {
                         </div>
                     )
                         :
-                            _.map(this.props.comments, comment => {
+                            _.map(sortedComments, comment => {
                                 return (
                                     <Comments key={comment.id} comment={comment}/>
                                 )
@@ -115,5 +130,6 @@ const mapStateToProps = ({ comments }) => {
         comments: comments.comments
     }
 }
+
 
 export default connect(mapStateToProps)(Post)
