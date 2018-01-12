@@ -2,21 +2,21 @@ import api from '../utils/api_utils'
 
 export function fetchPostComments(postId) {
     return dispatch => {
-        dispatch({type:'FETCH_COMMENTS_START'})
+        dispatch({type:FETCH_COMMENTS_START})
         api
             .get(`/posts/${postId}/comments`)
-            .then(response => dispatch({type:'FETCH_COMMENTS_COMPLETE', payload: response.data}))
-            .catch(error => dispatch({type:"FETCH_COMMENTS_ERROR", payload: error}))
+            .then(response => dispatch({type:FETCH_COMMENTS_COMPLETE, payload: response.data}))
+            .catch(error => dispatch({type:FETCH_COMMENTS_ERROR, payload: error}))
     }
 }
 
 export function fetchSingleComments(commentId) {
     return dispatch => {
-        dispatch({type: 'FETCH_SINGLE_COMMENT_START'})
+        dispatch({type: FETCH_SINGLE_COMMENT_START})
         api
             .get(`post/comments/${commentId}`)
-            .then(response => dispatch({type:'SINGLE_COMMENT_FETCHED', payload: response.data}))
-            .catch(error => dispatch({type:'FETCH_SINGLE_COMMENT_ERROR', payload: error}))
+            .then(response => dispatch({type:SINGLE_COMMENT_FETCHED, payload: response.data}))
+            .catch(error => dispatch({type:FETCH_SINGLE_COMMENT_ERROR, payload: error}))
     }
 }
 
@@ -24,8 +24,8 @@ export function createComment(commentInfo, callback) {
     return dispatch => {
         api
             .post(`/comments`, commentInfo)
-            .then(response => dispatch({type:'CREATE_COMMENT', payload: response.data}))
-            .catch(error => dispatch({type:'CREATE_COMMENT_ERROR', payload: error}))
+            .then(response => dispatch({type:CREATE_COMMENT, payload: response.data}))
+            .catch(error => dispatch({type:CREATE_COMMENT_ERROR, payload: error}))
             .then(() => callback())
     }
 }
@@ -34,8 +34,8 @@ export function editComment(commentInfo, callback) {
     return dispatch => {
         api
             .put(`comments/${commentInfo.id}`, commentInfo)
-            .then(response => dispatch({type:'EDIT_COMMENT', payload: response.data}))
-            .catch(error => dispatch({type:'EDIT_COMMENT_ERROR', payload: error}))
+            .then(response => dispatch({type:EDIT_COMMENT, payload: response.data}))
+            .catch(error => dispatch({type:EDIT_COMMENT_ERROR, payload: error}))
             .then(() => callback())
     }
 }
@@ -44,8 +44,8 @@ export function deleteComment(commentId, callback) {
     return dispatch => {
         api
             .delete(`/comments/${commentId}`)
-            .then(response => dispatch({type:'DELETE_COMMENT', payload: response.data}))
-            .catch(error => dispatch({type:'DELETE_COMMENT_ERROR', payload: error}))
+            .then(response => dispatch({type:DELETE_COMMENT, payload: response.data}))
+            .catch(error => dispatch({type:DELETE_COMMENT_ERROR, payload: error}))
             .then(() => callback())
     }
 
@@ -56,8 +56,8 @@ export function voteComment(commentId, vote) {
     return dispatch => {
         api
             .post(`/comments/${commentId}`, {option: vote})
-            .then(response => dispatch({type:'COMMENT_VOTE', payload: response.data}))
-            .catch(error => dispatch({type:'COMMENT_VOTE_ERROR', payload: error}))
+            .then(response => dispatch({type:COMMENT_VOTE, payload: response.data}))
+            .catch(error => dispatch({type:COMMENT_VOTE_ERROR, payload: error}))
     }
 }
 export const FETCH_COMMENTS_START = 'FETCH_COMMENTS_START'

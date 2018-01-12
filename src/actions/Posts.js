@@ -3,41 +3,41 @@ import api from '../utils/api_utils'
 export function fetchPosts() {
 
     return dispatch => {
-        dispatch({type: 'FETCH_POSTS_START'})
+        dispatch({type: FETCH_POSTS_START})
         api
             .get('/posts')
-            .then(response => dispatch({type: 'FETCH_POSTS_COMPLETE', payload: response.data}))
-            .catch(error => dispatch({type: 'FETCH_POSTS_ERROR', payload: error}))
+            .then(response => dispatch({type: FETCH_POSTS_COMPLETE, payload: response.data}))
+            .catch(error => dispatch({type: FETCH_POSTS_ERROR, payload: error}))
 
     }
 }
 
 export function fetchPost(postId) {
     return dispatch => {
-        dispatch({type:'FETCH_POST_START'})
+        dispatch({type:FETCH_POST_START})
         api
             .get(`/posts/${postId}`)
-            .then(response => dispatch({type:'FETCH_POST_COMPLETE', payload: response.data}))
-            .catch(error => dispatch({type:'FETCH_POST_ERROR', payload: error}))
+            .then(response => dispatch({type:FETCH_POST_COMPLETE, payload: response.data}))
+            .catch(error => dispatch({type:FETCH_POST_ERROR, payload: error}))
     }
 }
 
 export function fetchPostsByCat(category){
     return dispatch => {
-        dispatch({type:'FETCH_POSTS_BY_CAT_START'})
+        dispatch({type:FETCH_POSTS_BY_CAT_START})
         api
             .get(`/${category}/posts`)
-            .then(response => dispatch({type:'FETCH_POSTS_BY_CAT_COMPLETE', payload: response.data}))
-            .catch(error => dispatch({type:'FETCH_POSTS_BY_CAT_ERROR', payload: error}))
+            .then(response => dispatch({type:FETCH_POSTS_BY_CAT_COMPLETE, payload: response.data}))
+            .catch(error => dispatch({type:FETCH_POSTS_BY_CAT_ERROR, payload: error}))
     }
 }
 
-export function createPost (postInfo, callback) {
+export function createPost (postInfo, callback)
     return dispatch => {
         api
             .post('/posts', postInfo)
-            .then(response => dispatch({type:'CREATE_POST', payload: response.data}))
-            .catch(error => dispatch({type:'CREATE_POST_ERROR', payload: error}))
+            .then(response => dispatch({type:CREATE_POST, payload: response.data}))
+            .catch(error => dispatch({type:CREATE_POST_ERROR, payload: error}))
             .then(() => callback())
 
     }
@@ -47,8 +47,8 @@ export function editPost (postInfo, callback) {
     return dispatch => {
         api
             .put(`/posts/${postInfo.id}`, postInfo)
-            .then(response => dispatch({type:'EDIT_POST', payload: response.data}))
-            .catch(error => dispatch({type:'EDIT_POST_ERROR', payload: error}))
+            .then(response => dispatch({type:EDIT_POST, payload: response.data}))
+            .catch(error => dispatch({type:EDIT_POST_ERROR, payload: error}))
             .then(() => callback())
     }
 }
@@ -56,9 +56,12 @@ export function editPost (postInfo, callback) {
 export function deletePost (postId, callback) {
     return dispatch => {
         api
-            .delete(`/posts/${postId}`).then(() => callback())
-            .then(response => dispatch({type:'POST_DELETED', payload: response.data }))
-            .catch(error => dispatch({type:'POST_DELETE_ERROR', payload: error}))
+            .delete(`/posts/${postId}`)
+            .then(response => {
+                dispatch({ type: POST_DELETED, payload: postId })
+            })
+            .catch(error => dispatch({type: POST_DELETE_ERROR, payload: error}))
+            .then(() => callback())
 
     }
 }
@@ -67,8 +70,8 @@ export function postVote (postId, vote) {
     return dispatch => {
         api
             .post(`/posts/${postId}`, {option: vote})
-            .then(response => dispatch({type:'POST_VOTE', payload: response.data}))
-            .catch(error => dispatch({type:'POST_VOTE_ERROR', payload: error}))
+            .then(response => dispatch({type:POST_VOTE, payload: response.data}))
+            .catch(error => dispatch({type:POST_VOTE_ERROR, payload: error}))
     }
 }
 

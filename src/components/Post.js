@@ -56,10 +56,16 @@ class Post extends Component {
                     <div>
                         Votes: {post.voteScore}
                         <br/>
-                        <button>
+                        <button
+                            value="upVote"
+                            onClick={event => this.props.dispatch(postVote(post.id, event.target.value))}
+                        >
                             <FaCaretUp size={30}/>
                         </button>
-                        <button>
+                        <button
+                            value="downVote"
+                            onClick={event => this.props.dispatch(postVote(post.id, event.target.value))}
+                        >
                             <FaCaretDown size={30}/>
                         </button>
 
@@ -132,4 +138,4 @@ const mapStateToProps = ({ comments }) => {
 }
 
 
-export default connect(mapStateToProps)(Post)
+export default withRouter(connect(mapStateToProps)(Post))
