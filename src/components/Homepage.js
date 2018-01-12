@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { withRouter, Link } from 'react-router-dom'
 import { fetchPosts } from '../actions/Posts'
 import { connect } from 'react-redux'
 import Post from '../components/Post'
@@ -19,8 +20,8 @@ class Homepage extends Component {
     closePostsModal = () => this.setState(() => ({ postModalOpen: false }))
 
 
-    componentDidMount(){
-        this.props.fetchPosts()
+    componentWillMount(){
+        this.props.dispatch(fetchPosts())
     }
 
 
@@ -83,5 +84,5 @@ const mapStateToProps = (state) => {
     }
 }
 
-const mapDispatchToProps = { fetchPosts }
-export default connect(mapStateToProps, mapDispatchToProps)(Homepage);
+// const mapDispatchToProps = { fetchPosts }
+export default withRouter(connect(mapStateToProps)(Homepage))

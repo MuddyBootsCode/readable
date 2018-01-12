@@ -21,18 +21,26 @@ class Post extends Component {
         commentsModalOpen: false
     }
 
-   componentDidMount() {
+   componentDidMount () {
        const { post } = this.props
        this.props.dispatch(fetchPostComments(post.id))
    }
 
-   deleteButton(id) {
+   deleteButton (id) {
        this.props.dispatch(
            deletePost(id, () => {
                this.props.history.push('/')
            })
        )
    }
+
+    upVotePost (PostId) {
+        this.props.dispatch(postVote(PostId, 'upVote'))
+    }
+
+    downVotePost (PostId) {
+        this.props.dispatch(postVote(PostId, 'downVote'))
+    }
 
 
     closeCommentsModal = () => this.setState(() => ({commentsModalOpen: false}))
@@ -57,15 +65,14 @@ class Post extends Component {
                         Votes: {post.voteScore}
                         <br/>
                         <button
-                            value="upVote"
-                            onClick={event => this.props.dispatch(postVote(post.id, event.target.value))}
+                            onClick={() => this.upVotePost(post.id)}
                         >
                             <FaCaretUp size={30}/>
                         </button>
                         <button
-                            value="downVote"
-                            onClick={event => this.props.dispatch(postVote(post.id, event.target.value))}
+                            onClick={() => this.downVotePost(post.id)}
                         >
+
                             <FaCaretDown size={30}/>
                         </button>
 

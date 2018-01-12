@@ -1,6 +1,6 @@
 import api from '../utils/api_utils'
 
-export function fetchPostComments(postId) {
+export function fetchPostComments (postId) {
     return dispatch => {
         dispatch({type:FETCH_COMMENTS_START})
         api
@@ -10,7 +10,7 @@ export function fetchPostComments(postId) {
     }
 }
 
-export function fetchSingleComments(commentId) {
+export function fetchSingleComments (commentId) {
     return dispatch => {
         dispatch({type: FETCH_SINGLE_COMMENT_START})
         api
@@ -20,7 +20,7 @@ export function fetchSingleComments(commentId) {
     }
 }
 
-export function createComment(commentInfo, callback) {
+export function createComment (commentInfo, callback) {
     return dispatch => {
         api
             .post(`/comments`, commentInfo)
@@ -30,7 +30,7 @@ export function createComment(commentInfo, callback) {
     }
 }
 
-export function editComment(commentInfo, callback) {
+export function editComment (commentInfo, callback) {
     return dispatch => {
         api
             .put(`comments/${commentInfo.id}`, commentInfo)
@@ -40,7 +40,7 @@ export function editComment(commentInfo, callback) {
     }
 }
 
-export function deleteComment(commentId, callback) {
+export function deleteComment (commentId, callback) {
     return dispatch => {
         api
             .delete(`/comments/${commentId}`)
@@ -52,7 +52,7 @@ export function deleteComment(commentId, callback) {
     
 }
 
-export function voteComment(commentId, vote) {
+export function voteComment (commentId, vote) {
     return dispatch => {
         api
             .post(`/comments/${commentId}`, {option: vote})
