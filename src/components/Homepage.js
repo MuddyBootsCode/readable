@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { withRouter, Link } from 'react-router-dom'
+import { withRouter, NavLink } from 'react-router-dom'
 import { fetchPosts } from '../actions/Posts'
 import { connect } from 'react-redux'
 import Post from '../components/Post'
@@ -30,7 +30,11 @@ class Homepage extends Component {
                 <div className="wrapper">
                     <div className="box navbox">
                         <div className="nav">
-                            <div><a href="">All</a></div>
+                            <div><NavLink to="/" activeStyle={{
+                                fontWeight: 'bold',
+                                fontSize: '2.5em',
+                                color: 'red'
+                            }}>All</NavLink></div>
                             <div><a href="">Udacity</a></div>
                             <div><a href="">React</a></div>
                             <div><a href="">Redux</a></div>

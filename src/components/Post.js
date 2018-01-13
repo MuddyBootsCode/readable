@@ -129,7 +129,7 @@ class Post extends Component {
 
 function mapStateToProps({ comments }) {
     return {
-        comments: _.filter(comments.comments, { deleted: false })
+        comments: comments.comments
     }
 }
 

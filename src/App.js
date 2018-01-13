@@ -5,13 +5,15 @@ import DetailView from './components/DetailView'
 
 
 class App extends Component {
+
     render() {
+
         return(
 
             <div className="App">
                 <Switch>
-                    <Route path="/" component={Homepage}/>
-                    <Route path="/:category/:id" component={DetailView}/>
+                    <Route exact path="/" component={ Homepage }/>
+                    <Route path="/:category/:id" component={ DetailView }/>
                 </Switch>
             </div>
 

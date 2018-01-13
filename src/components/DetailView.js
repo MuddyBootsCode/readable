@@ -15,8 +15,8 @@ import FaEdit from 'react-icons/lib/fa/edit'
 class DetailView extends Component {
 
     componentDidMount() {
-        const { id } = this.props.match.params
 
+        const { id } = this.props.match.params
         this.props.dispatch(fetchPost(id))
         this.props.dispatch(fetchSingleComments(id))
     }
@@ -68,4 +68,4 @@ function mapStateToProps({ posts, comments }, ownProps) {
     }
 }
 
-export default connect(mapStateToProps)(DetailView)
+export default withRouter(connect(mapStateToProps)(DetailView))
