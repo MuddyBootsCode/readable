@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Link } from 'react-router-dom'
+import { withRouter, Link } from 'react-router-dom'
 import _ from 'lodash'
-import { fetchPosts, deletePost, postVote} from "../actions/Posts"
+import { fetchPost, deletePost, postVote } from "../actions/Posts"
+import { fetchSingleComments } from "../actions/Comments";
 import FaCaretUp from 'react-icons/lib/fa/caret-up'
 import FaCaretDown from 'react-icons/lib/fa/caret-down'
 import FaTimesCircleO from 'react-icons/lib/fa/times-circle-o'
@@ -12,8 +13,18 @@ import FaEdit from 'react-icons/lib/fa/edit'
 
 
 class DetailView extends Component {
+
+    componentDidMount() {
+        const { id } = this.props.match.params
+
+        this.props.dispatch(fetchPost(id))
+        this.props.dispatch(fetchSingleComments(id))
+    }
+
     render(){
+
         return (
+
             <div className="wrapper">
                 <div className="box navbox">
                     <div className="nav">
@@ -43,8 +54,18 @@ class DetailView extends Component {
     }
 }
 
-function mapStateToProps(){
-
+function mapStateToProps({ posts, comments }, ownProps) {
+    return {
+        post: posts.posts[ownProps.match.params.id],
+        comments: _.orderBy(
+            _.filter(comments.comments, {
+                parentId: ownProps.match.params.id,
+                deleted: false
+            }),
+            ['timestamp'],
+            ['desc']
+        )
+    }
 }
 
 export default connect(mapStateToProps)(DetailView)
