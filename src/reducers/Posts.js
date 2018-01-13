@@ -41,7 +41,7 @@ export default function postsReducer (state = initialState, action) {
                 ...state,
                 fetched: true,
                 fetching: false,
-                posts: _.mapKeys(action.payload.filter(post => !post.deleted), 'id')
+                posts: _.mapKeys(action.payload, 'id')
             }
         case FETCH_POSTS_ERROR :
             return {
@@ -58,7 +58,7 @@ export default function postsReducer (state = initialState, action) {
                 ...state,
                 fetched: true,
                 fetching: false,
-                posts: _.mapKeys(action.payload.filter(post => !post.deleted), 'id')
+                posts: _.mapKeys(action.payload, 'id')
             }
         case FETCH_POSTS_BY_CAT_ERROR :
             return {

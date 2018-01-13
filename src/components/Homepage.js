@@ -19,11 +19,9 @@ class Homepage extends Component {
 
     closePostsModal = () => this.setState(() => ({ postModalOpen: false }))
 
-
     componentWillMount(){
         this.props.dispatch(fetchPosts())
     }
-
 
     render() {
 
@@ -76,13 +74,12 @@ class Homepage extends Component {
     }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = ({posts}) => {
     return {
-        posts : state.posts.posts,
-        fetching : state.posts.fetching,
-        sortValue: state.posts.sortPosts
+        posts : _.filter(posts.posts, { deleted: false }),
+        fetching : posts.posts.fetching,
+        sortValue: posts.posts.sortPosts
     }
 }
 
-// const mapDispatchToProps = { fetchPosts }
 export default withRouter(connect(mapStateToProps)(Homepage))

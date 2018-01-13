@@ -36,7 +36,7 @@ export default function commentsReducer (state = initialState, action ) {
                 fetched: true,
                 comments : {
                     ...state.comments,
-                    ...(_.mapKeys(action.payload.filter(comment => !comment.deleted), 'id'))
+                    ...(_.mapKeys(action.payload, 'id'))
                 }
             }
         case FETCH_COMMENTS_ERROR :

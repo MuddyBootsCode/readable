@@ -50,8 +50,6 @@ class Post extends Component {
         const { post, comments } = this.props
 
         let sortedComments = _.filter(comments, { parentId: post.id, deleted: false })
-        console.log(sortedComments)
-
 
         return (
 
@@ -109,20 +107,8 @@ class Post extends Component {
                     contentLabel = 'Modal'
                 >
 
-                    { post.commentCount === 0 ? (
-                        <div className="post">
-                            <div className="post-content">
-                                <h1>No Comments, Be the first!</h1>
-                            </div>
-                        </div>
-                    )
-                        :
-                            _.map(sortedComments, comment => {
-                                return (
-                                    <Comments key={comment.id} comment={comment}/>
-                                )
-                            })
-                        }
+
+                        <Comments comments={sortedComments} post={post}/>
                     <div className="post">
                         <div className="post-content">
                             <button>
@@ -137,12 +123,10 @@ class Post extends Component {
     }
 }
 
-const mapStateToProps = ({ comments }) => {
+function mapStateToProps({ comments }) {
     return {
-
         comments: comments.comments
     }
 }
-
 
 export default withRouter(connect(mapStateToProps)(Post))
