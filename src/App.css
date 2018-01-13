@@ -32,6 +32,10 @@ a {
     text-decoration: none;
 }
 
+.postLink {
+    color: black;
+}
+
 .navbox {
     grid-row: 2;
     grid-column: 1 / -1;
