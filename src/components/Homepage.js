@@ -30,11 +30,7 @@ class Homepage extends Component {
                 <div className="wrapper">
                     <div className="box navbox">
                         <div className="nav">
-                            <div><NavLink to="/" activeStyle={{
-                                fontWeight: 'bold',
-                                fontSize: '2.5em',
-                                color: 'red'
-                            }}>All</NavLink></div>
+                            <div><NavLink to="/" activeStyle={{fontWeight: 'bold', fontSize: '2.5em', color: 'red'}}>All</NavLink></div>
                             <div><a href="">Udacity</a></div>
                             <div><a href="">React</a></div>
                             <div><a href="">Redux</a></div>

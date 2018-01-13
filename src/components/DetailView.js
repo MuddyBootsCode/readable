@@ -28,7 +28,7 @@ class DetailView extends Component {
             <div className="wrapper">
                 <div className="box navbox">
                     <div className="nav">
-                        <div><a href="">All</a></div>
+                        <div><Link to="/">All</Link></div>
                         <div><a href="">Udacity</a></div>
                         <div><a href="">React</a></div>
                         <div><a href="">Redux</a></div>
