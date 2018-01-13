@@ -7,7 +7,6 @@ import FaCaretUp from 'react-icons/lib/fa/caret-up'
 import FaCaretDown from 'react-icons/lib/fa/caret-down'
 import FaTimesCircleO from 'react-icons/lib/fa/times-circle-o'
 import FaEdit from 'react-icons/lib/fa/edit'
-import {postVote} from "../actions/Posts";
 
 
 class Comments extends Component {

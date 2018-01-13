@@ -19,7 +19,7 @@ class Homepage extends Component {
 
     closePostsModal = () => this.setState(() => ({ postModalOpen: false }))
 
-    componentWillMount(){
+    componentDidMount(){
         this.props.dispatch(fetchPosts())
     }
 

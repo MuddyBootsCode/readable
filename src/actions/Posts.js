@@ -57,9 +57,7 @@ export function deletePost (postId, callback) {
     return dispatch => {
         api
             .delete(`/posts/${postId}`)
-            .then(response => {
-                dispatch({ type: POST_DELETED, payload: postId })
-            })
+            .then(response => dispatch({ type: POST_DELETED, payload: postId }))
             .catch(error => dispatch({type: POST_DELETE_ERROR, payload: error}))
             .then(() => callback())
 

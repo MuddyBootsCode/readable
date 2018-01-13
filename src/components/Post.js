@@ -50,15 +50,18 @@ class Post extends Component {
 
         const { post, comments } = this.props
 
-        let sortedComments = _.filter(comments, { parentId: post.id, deleted: false })
+        let sortedComments = _.filter(comments, { parentId: post.id})
 
         return (
 
             <div key={post.id} className='post'>
                 <div className='post-header'>{post.title}</div>
-                <div className='post-content'>
-                    {post.body}
-                </div>
+                    <div className='post-content'>
+                        <Link to={`/${post.category}/${post.id}`} className="postLink">
+                            {post.body}
+                        </Link>
+                    </div>
+
                 <div className='post-footer'>
                     <div>
                         Votes: {post.voteScore}
@@ -126,7 +129,7 @@ class Post extends Component {
 
 function mapStateToProps({ comments }) {
     return {
-        comments: comments.comments
+        comments: _.filter(comments.comments, { deleted: false })
     }
 }
 
