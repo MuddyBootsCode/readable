@@ -74,7 +74,7 @@ class Homepage extends Component {
     }
 }
 
-const mapStateToProps = ({posts}) => {
+function mapStateToProps ({ posts }) {
     return {
         posts : _.filter(posts.posts, { deleted: false }),
         fetching : posts.posts.fetching,

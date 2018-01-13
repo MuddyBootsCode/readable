@@ -97,6 +97,7 @@ export default function postsReducer (state = initialState, action) {
                 posts: {
                     ...state.posts,
                     [action.payload.id]: {
+                        ...state.posts[action.payload.id],
                         voteScore: action.payload.voteScore
                     }
                 }

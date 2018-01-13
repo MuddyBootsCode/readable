@@ -69,7 +69,7 @@ export function deletePost (postId, callback) {
 export function postVote (postId, vote) {
     return dispatch => {
         api
-            .post(`/posts/${postId}`, {option: vote})
+            .post(`/posts/${postId}`, { option: vote })
             .then(response => dispatch({type:POST_VOTE, payload: response.data}))
             .catch(error => dispatch({type:POST_VOTE_ERROR, payload: error}))
     }

@@ -21,7 +21,7 @@ class Post extends Component {
         commentsModalOpen: false
     }
 
-   componentDidMount () {
+   componentWillMount () {
        const { post } = this.props
        this.props.dispatch(fetchPostComments(post.id))
    }
@@ -34,12 +34,13 @@ class Post extends Component {
        )
    }
 
-    upVotePost (PostId) {
-        this.props.dispatch(postVote(PostId, 'upVote'))
+    upVotePost (postId) {
+
+        this.props.dispatch(postVote(postId, 'upVote'))
     }
 
-    downVotePost (PostId) {
-        this.props.dispatch(postVote(PostId, 'downVote'))
+    downVotePost (postId) {
+        this.props.dispatch(postVote(postId, 'downVote'))
     }
 
 
@@ -107,8 +108,8 @@ class Post extends Component {
                     contentLabel = 'Modal'
                 >
 
+                    <Comments comments={sortedComments} post={post}/>
 
-                        <Comments comments={sortedComments} post={post}/>
                     <div className="post">
                         <div className="post-content">
                             <button>

@@ -31,6 +31,7 @@ class Comments extends Component {
 
 
     render() {
+
         const { post, comments } = this.props
 
         return (
