@@ -12,6 +12,7 @@ import FaTimesCircleO from 'react-icons/lib/fa/times-circle-o'
 import FaStackExchange from 'react-icons/lib/fa/stack-exchange'
 import FaPlusSquare from 'react-icons/lib/fa/plus-square'
 import FaEdit from 'react-icons/lib/fa/edit'
+import FaExternalLink from 'react-icons/lib/fa/external-link'
 
 
 
@@ -43,6 +44,10 @@ class Post extends Component {
         this.props.dispatch(postVote(postId, 'downVote'))
     }
 
+    postDetail = post => {
+        this.props.history.push(`/${post.category}/${post.id}`)
+    }
+
 
     closeCommentsModal = () => this.setState(() => ({commentsModalOpen: false}))
 
@@ -50,7 +55,7 @@ class Post extends Component {
 
         const { post, comments } = this.props
 
-        let sortedComments = _.filter(comments, { parentId: post.id})
+        let sortedComments = _.filter(comments, { parentId: post.id, deleted: false})
 
         return (
 
@@ -101,26 +106,34 @@ class Post extends Component {
                             <FaEdit size={30}/>
                         </button>
                     </div>
+                    <div>
+                        Expand
+                        <br/>
+                        <button onClick={() => this.postDetail(post)}>
+                            <FaExternalLink size={30}/>
+                        </button>
+
+                    </div>
                 </div>
 
-                <Modal
-                    className = "modal"
-                    overlayClassName = 'overlay'
-                    isOpen = {this.state.commentsModalOpen}
-                    onRequestClose = {this.closeCommentsModal}
-                    contentLabel = 'Modal'
-                >
+                {/*<Modal*/}
+                    {/*className = "modal"*/}
+                    {/*overlayClassName = 'overlay'*/}
+                    {/*isOpen = {this.state.commentsModalOpen}*/}
+                    {/*onRequestClose = {this.closeCommentsModal}*/}
+                    {/*contentLabel = 'Modal'*/}
+                {/*>*/}
 
-                    <Comments comments={sortedComments} post={post}/>
+                    {/*<Comments comments={sortedComments} post={post}/>*/}
 
-                    <div className="post">
-                        <div className="post-content">
-                            <button>
-                                <FaPlusSquare size={40}/>
-                            </button>
-                        </div>
-                    </div>
-                </Modal>
+                    {/*<div className="post">*/}
+                        {/*<div className="post-content">*/}
+                            {/*<button>*/}
+                                {/*<FaPlusSquare size={40}/>*/}
+                            {/*</button>*/}
+                        {/*</div>*/}
+                    {/*</div>*/}
+                {/*</Modal>*/}
             </div>
         )
 

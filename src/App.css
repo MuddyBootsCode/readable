@@ -118,6 +118,8 @@ a {
 }
 
 .post-header {
+    display: flex;
+    justify-content: space-evenly;
     border-bottom: solid black;
     margin-bottom: 5px;
     background-color: #ccc;
@@ -180,6 +182,18 @@ button {
     overflow-y: hidden;
 }
 
+.comments-header {
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid #000;
+    line-height: 0.1em;
+    margin: 10px 0 20px;
+}
+
+.comments-span {
+    background:#fff;
+    padding:0 10px;
+}
 
 /* ----------- iPhone 6, 6S, 7 and 8 ----------- */
 
