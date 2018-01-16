@@ -12,8 +12,13 @@ class App extends Component {
 
             <div className="App">
                 <Switch>
-                    <Route exact path="/" component={ Homepage }/>
-                    <Route path="/:category/:id" component={ DetailView }/>
+                    <Route exact path="/" component={Homepage} />
+                    {/*<Route path="/posts/new" component={PostNewEdit} />*/}
+                    {/*<Route path="/:id/newcomment" component={CommentNewEdit} />*/}
+                    {/*<Route path="/:id/edit" component={PostNewEdit} />*/}
+                    {/*<Route path="/:id/:commentId/edit" component={CommentNewEdit} />*/}
+                    <Route path="/:category/:id" component={DetailView} />
+                    <Route path="/:category" component={Homepage} />
                 </Switch>
             </div>
 

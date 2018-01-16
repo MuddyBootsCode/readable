@@ -62,9 +62,7 @@ class Post extends Component {
             <div key={post.id} className='post'>
                 <div className='post-header'>{post.title}</div>
                     <div className='post-content'>
-                        <Link to={`/${post.category}/${post.id}`} className="postLink">
                             {post.body}
-                        </Link>
                     </div>
 
                 <div className='post-footer'>

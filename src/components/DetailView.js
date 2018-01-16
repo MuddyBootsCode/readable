@@ -16,16 +16,6 @@ import FaEdit from 'react-icons/lib/fa/edit'
 class DetailView extends Component {
 
     componentDidMount () {
-        this.fetchData()
-    }
-
-    componentDidUpdate (prevProps) {
-        if (prevProps.match.params !== this.props.match.params) {
-            this.fetchData()
-        }
-    }
-
-    fetchData = () => {
         const {id} = this.props.match.params
         this.props.dispatch(fetchPost(id))
         this.props.dispatch(fetchSingleComments(id))
@@ -50,7 +40,6 @@ class DetailView extends Component {
     render(){
 
         const { post, comments } = this.props
-        const { id } = this.props.match.params
 
         if (post === undefined) {
             return <div>Post not found!</div>
@@ -67,6 +56,9 @@ class DetailView extends Component {
                         <div><a href="">Redux</a></div>
                     </div>
                 </div>
+                <div className="vbox"></div>
+                <div className="title-box">R</div>
+                <div className="letter-box title-box2">eadable</div>
                 <div className="content-location">
                     <div className="post-box">
                         <div key={post.id} className='post'>
@@ -87,22 +79,19 @@ class DetailView extends Component {
                                     <button
                                         onClick={() => this.downVotePost(post.id)}
                                     >
-
                                         <FaCaretDown size={30}/>
                                     </button>
 
                                 </div>
                                 <div>
-                                    Comments: {post.commentCount}
+                                    Comments: {Object.keys(comments).length}
                                     <br/>
-                                    <button onClick={() => this.setState({commentsModalOpen: true})}>
                                         <FaStackExchange size={30}/>
-                                    </button>
                                 </div>
                                 <div>
                                     Delete
                                     <br/>
-                                    <button onClick={() => this.deleteButton(post.id)}>
+                                    <button onClick={() => this.deleteButton(post.id) }>
                                         <FaTimesCircleO size={30}/>
                                     </button>
 
@@ -135,7 +124,7 @@ function mapStateToProps({ posts, comments }, ownProps) {
             _.filter(comments.comments, {
                 parentId: ownProps.match.params.id,
                 deleted: false
-            }),
+            })
             // ['timestamp'],
             // ['desc']
         )

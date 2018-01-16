@@ -44,7 +44,7 @@ export function deleteComment (commentId, callback) {
     return dispatch => {
         api
             .delete(`/comments/${commentId}`)
-            .then(response => dispatch({type:DELETE_COMMENT, payload: response.data}))
+            .then(response => dispatch({type:DELETE_COMMENT, payload: commentId}))
             .catch(error => dispatch({type:DELETE_COMMENT_ERROR, payload: error}))
             .then(() => callback())
     }
