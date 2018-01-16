@@ -12,7 +12,7 @@ import {
     DELETE_COMMENT,
     DELETE_COMMENT_ERROR,
     COMMENT_VOTE,
-    COMMENT_VOTE_ERROR
+    COMMENT_VOTE_ERROR, CREATE_COMMENT, CREATE_COMMENT_ERROR
 } from "../actions/Comments";
 
 const initialState = {
@@ -105,6 +105,16 @@ export default function commentsReducer (state = initialState, action ) {
                 }
             }
         case COMMENT_VOTE_ERROR :
+            return {
+                ...state,
+                error: action.payload
+            }
+        case CREATE_COMMENT :
+            return {
+                ...state,
+                comments: { ...state.comments, [action.payload.id]: action.payload }
+            }
+        case CREATE_COMMENT_ERROR :
             return {
                 ...state,
                 error: action.payload
