@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { NavLink, withRouter } from 'react-router-dom'
+import { Link, NavLink, withRouter } from 'react-router-dom'
 import Comments from './Comments'
 import _ from 'lodash'
 import { fetchPost, deletePost, postVote } from "../actions/Posts"

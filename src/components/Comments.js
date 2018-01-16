@@ -7,6 +7,7 @@ import FaCaretUp from 'react-icons/lib/fa/caret-up'
 import FaCaretDown from 'react-icons/lib/fa/caret-down'
 import FaTimesCircleO from 'react-icons/lib/fa/times-circle-o'
 import FaEdit from 'react-icons/lib/fa/edit'
+import FaPlusSquare from 'react-icons/lib/fa/plus-square'
 
 
 class Comments extends Component {
@@ -83,6 +84,14 @@ class Comments extends Component {
                             )})
 
                         }
+
+                    <div className="post">
+                        <div className="post-content">
+                            <Link to={`/${post.id}/newcomment`} className="postLink">
+                                <FaPlusSquare size={40}/>
+                            </Link>
+                        </div>
+                    </div>
                 </div>
             )
        }

@@ -124,13 +124,6 @@ class Post extends Component {
 
                 <Comments comments={sortedComments} post={post}/>
 
-                <div className="post">
-                    <div className="post-content">
-                        <button>
-                            <FaPlusSquare size={40}/>
-                        </button>
-                    </div>
-                </div>
             </Modal>
             </div>
         )

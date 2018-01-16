@@ -1,10 +1,12 @@
 import { combineReducers } from 'redux'
+import { reducer as formReducer } from 'redux-form'
 import postsReducer from './Posts'
 import commentsReducer from './Comments'
 
 const rootReducer = combineReducers({
     posts: postsReducer,
     comments: commentsReducer,
+    form: formReducer,
 
 })
 
