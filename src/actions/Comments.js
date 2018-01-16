@@ -14,7 +14,7 @@ export function fetchSingleComments (commentId) {
     return dispatch => {
         dispatch({type: FETCH_SINGLE_COMMENT_START})
         api
-            .get(`post/comments/${commentId}`)
+            .get(`posts/${commentId}/comments/`)
             .then(response => dispatch({type:SINGLE_COMMENT_FETCHED, payload: response.data}))
             .catch(error => dispatch({type:FETCH_SINGLE_COMMENT_ERROR, payload: error}))
     }

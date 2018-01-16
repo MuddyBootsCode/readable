@@ -116,24 +116,24 @@ class Post extends Component {
                     </div>
                 </div>
 
-                {/*<Modal*/}
-                    {/*className = "modal"*/}
-                    {/*overlayClassName = 'overlay'*/}
-                    {/*isOpen = {this.state.commentsModalOpen}*/}
-                    {/*onRequestClose = {this.closeCommentsModal}*/}
-                    {/*contentLabel = 'Modal'*/}
-                {/*>*/}
+                <Modal
+                className = "modal"
+                overlayClassName = 'overlay'
+                isOpen = {this.state.commentsModalOpen}
+                onRequestClose = {this.closeCommentsModal}
+                contentLabel = 'Modal'
+            >
 
-                    {/*<Comments comments={sortedComments} post={post}/>*/}
+                <Comments comments={sortedComments} post={post}/>
 
-                    {/*<div className="post">*/}
-                        {/*<div className="post-content">*/}
-                            {/*<button>*/}
-                                {/*<FaPlusSquare size={40}/>*/}
-                            {/*</button>*/}
-                        {/*</div>*/}
-                    {/*</div>*/}
-                {/*</Modal>*/}
+                <div className="post">
+                    <div className="post-content">
+                        <button>
+                            <FaPlusSquare size={40}/>
+                        </button>
+                    </div>
+                </div>
+            </Modal>
             </div>
         )
 

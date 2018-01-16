@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Link } from 'react-router-dom'
+import { NavLink, withRouter } from 'react-router-dom'
 import Comments from './Comments'
 import _ from 'lodash'
 import { fetchPost, deletePost, postVote } from "../actions/Posts"
@@ -26,9 +26,9 @@ class DetailView extends Component {
     }
 
     fetchData = () => {
-        const {postId} = this.props.match.params
-        this.props.dispatch(fetchPost(postId))
-        this.props.dispatch(fetchSingleComments(postId))
+        const {id} = this.props.match.params
+        this.props.dispatch(fetchPost(id))
+        this.props.dispatch(fetchSingleComments(id))
     }
 
     deleteButton (id) {
@@ -50,13 +50,23 @@ class DetailView extends Component {
     render(){
 
         const { post, comments } = this.props
-        console.log(Object.entries(post) + ' post from detail view')
-        for (const key of Object.keys(comments)) {
-            console.log(key, comments[key]);
-        }
         const { id } = this.props.match.params
 
+        if (post === undefined) {
+            return <div>Post not found!</div>
+        }
+
         return (
+
+            <div className="wrapper">
+                <div className="box navbox">
+                    <div className="nav">
+                        <div><NavLink exact to="/" activeStyle={{textDecoration: 'underline', fontSize: '2.5em', color: 'white'}}>All</NavLink></div>
+                        <div><a href="">Udacity</a></div>
+                        <div><a href="">React</a></div>
+                        <div><a href="">Redux</a></div>
+                    </div>
+                </div>
                 <div className="content-location">
                     <div className="post-box">
                         <div key={post.id} className='post'>
@@ -113,6 +123,7 @@ class DetailView extends Component {
 
                     </div>
                 </div>
+            </div>
         )
     }
 }
@@ -125,10 +136,10 @@ function mapStateToProps({ posts, comments }, ownProps) {
                 parentId: ownProps.match.params.id,
                 deleted: false
             }),
-            ['timestamp'],
-            ['desc']
+            // ['timestamp'],
+            // ['desc']
         )
     }
 }
 
-export default connect(mapStateToProps)(DetailView)
+export default withRouter(connect(mapStateToProps)(DetailView))

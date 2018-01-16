@@ -33,11 +33,13 @@ class Comments extends Component {
 
         const { post, comments } = this.props
 
+        let sortedComments = _.filter(comments, { parentId: post.id, deleted: false})
+
         return (
 
                 <div>
-                        {comments &&
-                            _.map(comments, comment => {
+                        {sortedComments &&
+                            _.map(sortedComments, comment => {
                                 return (
                                     <div key={comment.id} className='post'>
                                         <div className='post-header'>Author - {comment.author}</div>
