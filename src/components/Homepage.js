@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { withRouter, NavLink } from 'react-router-dom'
+import { withRouter, NavLink, Link } from 'react-router-dom'
 import { fetchPosts } from '../actions/Posts'
 import { connect } from 'react-redux'
 import Post from '../components/Post'
@@ -11,13 +11,6 @@ import _ from 'lodash'
 
 class Homepage extends Component {
 
-    state = {
-
-        postModalOpen: false,
-
-    }
-
-    closePostsModal = () => this.setState(() => ({ postModalOpen: false }))
 
     componentDidMount(){
         this.props.dispatch(fetchPosts())
@@ -51,24 +44,15 @@ class Homepage extends Component {
                             }
                             <div className="post">
                                 <div className="post-content">
-                                    <button onClick={() => this.setState({postModalOpen: true})}>
+                                    <Link to='/posts/new' className='postLink'>
                                         <FaPlusSquare size={40}/>
-                                    </button>
+                                    </Link>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <Modal
-                    className = "modal"
-                    overlayClassName = 'overlay'
-                    isOpen = {this.state.postModalOpen}
-                    onRequestClose = {this.closePostsModal}
-                    contentLabel = 'Modal'
-                >
-                    <h1>Posts Form</h1>
-                </Modal>
             </div>
         );
     }

@@ -99,9 +99,9 @@ class DetailView extends Component {
                                 <div>
                                     Edit
                                     <br/>
-                                    <button>
+                                    <Link to={`/${post.id}/edit`} className='postLink'>
                                         <FaEdit size={30}/>
-                                    </button>
+                                    </Link>
                                 </div>
                             </div>
                         </div>

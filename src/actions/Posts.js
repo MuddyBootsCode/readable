@@ -12,11 +12,12 @@ export function fetchPosts () {
     }
 }
 
-export function fetchPost (postId) {
+export function fetchPost (id) {
+        console.log(id + ' postId from inside FetchPost action')
     return dispatch => {
         dispatch({type:FETCH_POST_START})
         api
-            .get(`/posts/${postId}`)
+            .get(`/posts/${id}`)
             .then(response => dispatch({type:FETCH_POST_COMPLETE, payload: response.data}))
             .catch(error => dispatch({type:FETCH_POST_ERROR, payload: error}))
     }
