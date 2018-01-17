@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { withRouter } from 'react-router-dom'
+import { withRouter, NavLink } from 'react-router-dom'
 import { Field, reduxForm } from 'redux-form'
+import FaCheck from 'react-icons/lib/fa/check'
+import FaTimesCircleO from 'react-icons/lib/fa/times-circle-o'
 
 import { createComment, editComment, fetchSingleComments } from '../actions/Comments'
 
@@ -71,34 +73,65 @@ class CommentForm extends Component {
         const { handleSubmit, submitting, invalid } = this.props
 
         return (
-                <div className="form-wrapper">
-                    <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
-                        <Field
-                            name="author"
-                            placeholder="Author"
-                            component={this.renderField}
-                        />
-
-                        <Field
-                            name="body"
-                            placeholder="What is on your mind..."
-                            component={this.renderField}
-                        />
-                        <button
-                            type="submit"
-                            disabled={submitting || invalid}
-                            className="btn btn-primary"
-                        >
-                            Submit
-                        </button>
-                        </form>
-                        <button
-                            onClick={this.props.history.goBack}
-                            className="btn btn-secondary"
-                        >
-                            back
-                        </button>
+            <div className="wrapper">
+                <div className="box navbox">
+                    <div className="nav">
+                        <div><NavLink exact to="/" activeStyle={{textDecoration: 'underline', fontSize: '2.5em', color: 'white'}}>All</NavLink></div>
+                        <div><a href="">Udacity</a></div>
+                        <div><a href="">React</a></div>
+                        <div><a href="">Redux</a></div>
+                    </div>
                 </div>
+                <div className="vbox"></div>
+                <div className="title-box">R</div>
+                <div className="letter-box title-box2">eadable</div>
+                <div className="content-location">
+                    <div className="post-box">
+                        <div className="comment">
+                            <div className="form-wrapper">
+                                <form onSubmit={handleSubmit(this.onSubmit.bind(this))} className="comment-form">
+                                    <div className="comment-content">
+                                        Author:
+                                        <div className="comment-author-field">
+                                            <Field
+                                                name="author"
+                                                placeholder="Author"
+                                                component={this.renderField}
+                                            />
+                                        </div>
+                                        Body:
+                                        <div className="comment-body-field">
+                                            <Field
+                                                name="body"
+                                                placeholder="What is on your mind..."
+                                                component={this.renderField}
+                                            />
+                                        </div>
+                                        <button
+                                            type="submit"
+                                            disabled={submitting || invalid}
+                                            className="button"
+                                        >
+                                            Submit
+                                            <FaCheck size={30}/>
+                                        </button>
+                                    </div>
+                                </form>
+                                    <div className="post-footer">
+                                        <button
+                                            onClick={this.props.history.goBack}
+                                            className="btn btn-secondary"
+                                        >
+                                            back
+                                            <FaTimesCircleO size={30}/>
+                                        </button>
+                                    </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         )
     }
 }

@@ -90,8 +90,6 @@ a {
 .post-box {
     display: flex;
     flex-direction: column;
-    /*align-items: center;*/
-    /*justify-content: center;*/
     height: 100%;
     min-width: 300px;
 }
@@ -115,6 +113,7 @@ a {
     flex-flow: wrap;
     justify-content: center;
     align-items: center;
+    width: 100%;
 }
 
 .post-header {
@@ -169,7 +168,6 @@ button {
     border: 1px solid rgb(204, 204, 204);
     background: rgb(255, 255, 255);
     overflow: auto;
-    border-radius: 4px;
     outline: none;
     padding: 20px;
     border-radius: 3px;
@@ -180,6 +178,21 @@ button {
 
 .ReactModal__Body--open {
     overflow-y: hidden;
+}
+
+
+/* comments */
+
+.comment {
+    display: block;
+    width: 100%;
+    border: solid black;
+    border-radius: 5px;
+    height: 250px;
+    font-size: 1em;
+    margin: 15px 0px 15px 0px;
+    box-sizing: border-box;
+
 }
 
 .comments-header {
@@ -194,6 +207,21 @@ button {
 .comments-span {
     background:#fff;
     padding:0 10px;
+}
+
+.comments-form {
+    display: block;
+    width: 100%;
+}
+
+.comments-content {
+    display: block;
+    width: 100%;
+}
+
+.comments-author-field {
+    display: block;
+    width: 100%;
 }
 
 /* ----------- iPhone 6, 6S, 7 and 8 ----------- */
