@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { withRouter, NavLink, Link } from 'react-router-dom'
-import { fetchCategories } from '../actions/Categories'
+import { withRouter, NavLink } from 'react-router-dom'
 import FaClockO from 'react-icons/lib/fa/clock-o'
 import FaThumbsDown from 'react-icons/lib/fa/thumbs-down'
 import {selectSortValue} from "../actions/Posts";
@@ -55,4 +54,4 @@ function mapStateToProps({ categories }) {
     }
 }
 
-export default withRouter(connect(mapStateToProps, { fetchCategories, selectSortValue })(NavMenu))
+export default withRouter(connect(mapStateToProps, { selectSortValue })(NavMenu))
