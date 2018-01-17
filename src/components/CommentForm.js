@@ -12,7 +12,8 @@ class CommentForm extends Component {
         const { commentId } = this.props.match.params
 
         if (commentId) {
-            this.props.fetchSingleComments(commentId).then(() => this.handleInitialize())
+            const comment = this.props.fetchSingleComments(commentId)
+            this.handleInitialize(comment)
         }
     }
 

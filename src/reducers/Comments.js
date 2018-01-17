@@ -67,10 +67,7 @@ export default function commentsReducer (state = initialState, action ) {
         case EDIT_COMMENT :
             return {
                 ...state,
-                comments: {
-                    ...state.comments,
-                    [action.payload.id]: action.payload
-                }
+                comments: { ...state.comments, [action.payload.id]: action.payload }
             }
         case EDIT_COMMENT_ERROR :
             return {

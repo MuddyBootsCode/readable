@@ -75,9 +75,9 @@ class Comments extends Component {
                                             <div>
                                                 Edit
                                                 <br/>
-                                                <button>
+                                                <Link to={`/${post.id}/${comment.id}/edit`} className="postLink">
                                                     <FaEdit size={30}/>
-                                                </button>
+                                                </Link>
                                             </div>
                                         </div>
                                     </div>
