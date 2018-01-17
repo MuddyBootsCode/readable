@@ -74,6 +74,13 @@ export function postVote (postId, vote) {
     }
 }
 
+export function selectSortValue(sortValue) {
+    return {
+        type: SELECT_SORT_VALUE,
+        payload: sortValue
+    }
+}
+
 
 
 
@@ -96,3 +103,4 @@ export const POST_VOTE = 'POST_VOTE'
 export const POST_VOTE_ERROR = 'POST_VOTE_ERROR'
 export const POST_DELETED = 'POST_DELETED'
 export const POST_DELETE_ERROR = 'POST_DELETE_ERROR'
+export const SELECT_SORT_VALUE = 'SELECT_SORT_VALUE'

@@ -49,6 +49,8 @@ class Post extends Component {
     }
 
 
+
+
     closeCommentsModal = () => this.setState(() => ({commentsModalOpen: false}))
 
     render() {
@@ -100,9 +102,9 @@ class Post extends Component {
                     <div>
                         Edit
                         <br/>
-                        <button>
+                        <Link to={`/${post.id}/edit`} className='postLink'>
                             <FaEdit size={30}/>
-                        </button>
+                        </Link>
                     </div>
                     <div>
                         Expand

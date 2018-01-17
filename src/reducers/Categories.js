@@ -1,26 +1,45 @@
-import api from '../utils/api_utils'
+ import {
+     FETCH_CATEGORIES_START,
+     CATEGORIES_FETCHED,
+     FETCH_CATEGORIES_ERROR,
+     SELECT_CATEGORY
 
+ } from "../actions/Categories";
 
-export function fetchCategories () {
-    return dispatch => {
-        dispatch({type: FETCH_CATEGORIES_START})
-        api
-            .get(`/categories`)
-            .then(response => dispatch({type: CATEGORIES_FETCHED, payload: response.data}))
-            .catch(error => dispatch({type: FETCH_CATEGORIES_ERROR, payload: error}))
-
-    }
+const initialState = {
+    fetching: false,
+    fetched: false,
+    categories: [],
+    selectedCategory: '',
+    error: false
 }
 
-export function selectCategory(category) {
-    return {
-        type: SELECT_CATEGORY,
-        payload: category
+export default function categoriesReducer (state = initialState, action) {
+    switch (action.type) {
+        case FETCH_CATEGORIES_START :
+            return {
+                ...state,
+                fetching: true
+            }
+        case CATEGORIES_FETCHED :
+            return {
+                ...state,
+                fetched: true,
+                fetching: false,
+                categories: action.payload
+            }
+        case FETCH_CATEGORIES_ERROR :
+            return {
+                ...state,
+                fetching: false,
+                error: action.payload
+            }
+        case SELECT_CATEGORY :
+            return {
+                ...state,
+                selectedCategory: action.payload
+            }
+        default :
+            return state
     }
-}
-
-
-export const FETCH_CATEGORIES_START = 'FETCH_CATEGORIES_START'
-export const CATEGORIES_FETCHED = 'CATEGORIES_FETCHED'
-export const FETCH_CATEGORIES_ERROR = 'FETCH_CATEGORIES_ERROR'
-export const SELECT_CATEGORY = 'SELECT_CATEGORY'
+ }

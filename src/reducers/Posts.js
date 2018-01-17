@@ -15,7 +15,8 @@ import {
     POST_VOTE,
     POST_VOTE_ERROR,
     CREATE_POST,
-    CREATE_POST_ERROR
+    CREATE_POST_ERROR,
+    SELECT_SORT_VALUE
 
 } from "../actions/Posts";
 
@@ -122,6 +123,11 @@ export default function postsReducer (state = initialState, action) {
             return {
                 ...state,
                 error: action.payload
+            }
+        case SELECT_SORT_VALUE :
+            return {
+                ...state,
+                sortPosts: action.payload
             }
         default :
             return state;

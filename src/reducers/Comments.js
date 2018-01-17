@@ -22,7 +22,7 @@ const initialState = {
     error: null
 }
 
-export default function commentsReducer (state = initialState, action ) {
+export default function commentsReducer (state = initialState, action) {
     switch (action.type) {
         case FETCH_COMMENTS_START :
             return {

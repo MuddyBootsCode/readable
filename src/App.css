@@ -11,6 +11,9 @@ body {
     font-size: 2em;
 }
 
+
+/*   Nav    */
+
 .nav {
     display: flex;
     height: 100%;
@@ -57,6 +60,18 @@ a {
 .title-box2 {
     text-decoration: underline;
 }
+
+.sort-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 5px;
+    border-left: 3px solid white;
+    color: white;
+}
+
+
+/* Grid Body */
 
 .wrapper {
     width: auto;

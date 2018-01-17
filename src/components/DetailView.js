@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Link, NavLink, withRouter } from 'react-router-dom'
+import { Link, withRouter } from 'react-router-dom'
 import Comments from './Comments'
+import NavMenu from './NavMenu'
 import _ from 'lodash'
 import { fetchPost, deletePost, postVote } from "../actions/Posts"
 import { fetchSingleComments } from "../actions/Comments";
@@ -49,12 +50,7 @@ class DetailView extends Component {
 
             <div className="wrapper">
                 <div className="box navbox">
-                    <div className="nav">
-                        <div><NavLink exact to="/" activeStyle={{textDecoration: 'underline', fontSize: '2.5em', color: 'white'}}>All</NavLink></div>
-                        <div><a href="">Udacity</a></div>
-                        <div><a href="">React</a></div>
-                        <div><a href="">Redux</a></div>
-                    </div>
+                    <NavMenu/>
                 </div>
                 <div className="vbox"></div>
                 <div className="title-box">R</div>
@@ -64,7 +60,7 @@ class DetailView extends Component {
                         <div key={post.id} className='post'>
                             <div className='post-header'>{post.title}</div>
                             <div className='post-content'>
-                                    {post.body}
+                                {post.body}
                             </div>
 
                             <div className='post-footer'>
@@ -124,9 +120,9 @@ function mapStateToProps({ posts, comments }, ownProps) {
             _.filter(comments.comments, {
                 parentId: ownProps.match.params.id,
                 deleted: false
-            })
-            // ['timestamp'],
-            // ['desc']
+            }),
+            ['timestamp'],
+            ['desc']
         )
     }
 }
