@@ -7,9 +7,6 @@ import FaThumbsDown from 'react-icons/lib/fa/thumbs-down'
 import {selectSortValue} from "../actions/Posts";
 
 class NavMenu extends Component {
-    componentWillMount() {
-        this.props.fetchCategories()
-    }
 
     sortByPopularity(){
         this.props.selectSortValue('popularity')
@@ -22,20 +19,18 @@ class NavMenu extends Component {
     render() {
         return (
             <div className="nav">
-                <NavLink exact to="/" activeStyle={{textDecoration: 'underline', fontSize: '2.5em', color: 'white'}}>
+                <NavLink exact to="/" activeStyle={{textDecoration: 'underline', fontSize: '2em', color: 'red'}}>
                     All
                 </NavLink>
-                {this.props.categories &&
-                this.props.categories.map(category => (
-                    <div>
-                        <Link
-                            to={category.name}
-                            key={category.name}
-                        >
-                            {category.name}
-                        </Link>
-                    </div>
-                ))}
+                <NavLink exact to="/react" activeStyle={{textDecoration: 'underline', fontSize: '2em', color: 'red'}}>
+                    React
+                </NavLink>
+                <NavLink exact to="/redux" activeStyle={{textDecoration: 'underline', fontSize: '2em', color: 'red'}}>
+                    Redux
+                </NavLink>
+                <NavLink exact to="/udacity" activeStyle={{textDecoration: 'underline', fontSize: '2em', color: 'red'}}>
+                    Udacity
+                </NavLink>
 
                 <div className="sort-buttons">
 
