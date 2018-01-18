@@ -10,14 +10,13 @@ import FaCaretUp from 'react-icons/lib/fa/caret-up'
 import FaCaretDown from 'react-icons/lib/fa/caret-down'
 import FaTimesCircleO from 'react-icons/lib/fa/times-circle-o'
 import FaStackExchange from 'react-icons/lib/fa/stack-exchange'
-import FaPlusSquare from 'react-icons/lib/fa/plus-square'
 import FaEdit from 'react-icons/lib/fa/edit'
 
 
 class DetailView extends Component {
 
     componentDidMount () {
-        const {id} = this.props.match.params
+        const { id } = this.props.match.params
         this.props.dispatch(fetchPost(id))
         this.props.dispatch(fetchSingleComments(id))
     }

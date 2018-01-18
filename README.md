@@ -7,5 +7,4 @@ To launch the project you'll need to:
 4) In a separate terminal window navigate to the server and run npm install && node server
 5) The project will be served at localhost:3000 and the server will listen on port 3001
 
-I reviewed the code of countless other Udacity students and cherry picked liberally from their consistently excellent work.
 I found the work of https://github.com/janstoff to be particularly helpful and corresponded with him about my project. 

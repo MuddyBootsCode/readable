@@ -123,14 +123,14 @@ class PostForm extends Component {
                     <button
                         type="submit"
                         disabled={submitting || invalid}
-                        className="btn btn-primary"
+                        className
                     >
                         Submit
                     </button>
                 </form>
                 <button
                     onClick={this.props.history.goBack}
-                    className="btn btn-secondary"
+                    className=""
                 >
                     back
                 </button>
