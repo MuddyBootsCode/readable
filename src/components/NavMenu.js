@@ -18,19 +18,20 @@ class NavMenu extends Component {
     render() {
         return (
             <div className="nav">
-                <NavLink exact to="/" activeStyle={{textDecoration: 'underline', fontSize: '2em', color: 'red'}}>
-                    All
-                </NavLink>
-                <NavLink exact to="/react" activeStyle={{textDecoration: 'underline', fontSize: '2em', color: 'red'}}>
-                    React
-                </NavLink>
-                <NavLink exact to="/redux" activeStyle={{textDecoration: 'underline', fontSize: '2em', color: 'red'}}>
-                    Redux
-                </NavLink>
-                <NavLink exact to="/udacity" activeStyle={{textDecoration: 'underline', fontSize: '2em', color: 'red'}}>
-                    Udacity
-                </NavLink>
-
+                <div className="nav-links">
+                    <NavLink exact to="/" activeStyle={{textDecoration: 'underline', fontSize: '2em', color: 'red'}}>
+                        All
+                    </NavLink>
+                    <NavLink exact to="/react" activeStyle={{textDecoration: 'underline', fontSize: '2em', color: 'red'}}>
+                        React
+                    </NavLink>
+                    <NavLink exact to="/redux" activeStyle={{textDecoration: 'underline', fontSize: '2em', color: 'red'}}>
+                        Redux
+                    </NavLink>
+                    <NavLink exact to="/udacity" activeStyle={{textDecoration: 'underline', fontSize: '2em', color: 'red'}}>
+                        Udacity
+                    </NavLink>
+                </div>
                 <div className="sort-buttons">
 
                     <span>Sort By</span>

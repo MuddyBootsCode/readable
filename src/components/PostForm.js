@@ -2,7 +2,10 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 import { Field, reduxForm } from 'redux-form'
-import { createPost, editPost, fetchPost } from "../actions/Posts";
+import Navmenu from './NavMenu'
+import { createPost, editPost, fetchPost } from "../actions/Posts"
+import FaCheck from 'react-icons/lib/fa/check'
+import FaTimesCircleO from 'react-icons/lib/fa/times-circle-o'
 
 const uuid = require('uuid/v4')
 
@@ -98,42 +101,70 @@ class PostForm extends Component {
         const { handleSubmit, submitting, invalid } = this.props
 
         return (
-            <div className="form-wrapper">
-                <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
-                    <Field
-                        name="title"
-                        placeholder="Title"
-                        component={this.renderField}
-                    />
-                    <Field
-                        name="author"
-                        placeholder="Author"
-                        component={this.renderField}
-                    />
-                    <Field
-                        name="category"
-                        placeholder="Select a category"
-                        component={this.renderDropDown}
-                    />
-                    <Field
-                        name="body"
-                        placeholder="What is on your mind..."
-                        component={this.renderField}
-                    />
-                    <button
-                        type="submit"
-                        disabled={submitting || invalid}
-                        className
-                    >
-                        Submit
-                    </button>
-                </form>
-                <button
-                    onClick={this.props.history.goBack}
-                    className=""
-                >
-                    back
-                </button>
+
+            <div className="wrapper">
+                <div className="box navbox">
+                    <Navmenu/>
+                </div>
+                <div className="vbox"></div>
+                <div className="title-box">R</div>
+                <div className="letter-box title-box2">eadable</div>
+                <div className="content-location">
+                            <div className="post-box">
+                                <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
+                                    <div className="post">
+                                        <div className="post-header">
+                                            Author:
+                                            <Field
+                                                name="author"
+                                                placeholder="Author"
+                                                component={this.renderField}
+                                            />
+                                            Title:
+                                            <Field
+                                                name="title"
+                                                placeholder="Title"
+                                                component={this.renderField}
+                                            />
+                                            Post Category:
+                                            <Field
+                                                name="category"
+                                                placeholder="Select a category"
+                                                component={this.renderDropDown}
+                                            />
+                                        </div>
+                                        <div className="post-content">
+                                                Body:
+                                                <Field
+                                                    name="body"
+                                                    placeholder="What is on your mind..."
+                                                    component={this.renderField}
+                                                />
+                                        </div>
+                                        <div className="post-footer">
+                                                <button
+                                                    type="submit"
+                                                    disabled={submitting || invalid}
+                                                    className="postLink"
+                                                >
+                                                    Submit
+                                                    <br/>
+                                                    <FaCheck size={30}/>
+                                                </button>
+
+                                            <button
+                                                onClick={this.props.history.goBack}
+                                                className=""
+                                            >
+                                                Cancel
+                                                <br/>
+                                                <FaTimesCircleO size={30}/>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                </div>
             </div>
         )
     }

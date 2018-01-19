@@ -101,7 +101,7 @@ class DetailView extends Component {
                             </div>
                         </div>
 
-                        <h2 className="comments-header"><span className="comments-span"> Comments </span></h2>
+                        <h2 className="comments-span-header"><span className="comments-span"> Comments </span></h2>
 
                         <Comments comments={comments} post={post}/>
 
