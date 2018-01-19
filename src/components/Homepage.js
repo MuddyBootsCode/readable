@@ -36,8 +36,6 @@ class Homepage extends Component {
             shownPosts = sortedPosts
         }
 
-        console.log(shownPosts)
-
         return (
             <div className="App">
                 <div className="wrapper">

@@ -1,6 +1,7 @@
 import api from '../utils/api_utils'
 
 
+
 export function fetchCategories () {
     return dispatch => {
         dispatch({type: FETCH_CATEGORIES_START})
@@ -19,8 +20,8 @@ export function selectCategory(category) {
     }
 }
 
-
 export const FETCH_CATEGORIES_START = 'FETCH_CATEGORIES_START'
 export const CATEGORIES_FETCHED = 'CATEGORIES_FETCHED'
 export const FETCH_CATEGORIES_ERROR = 'FETCH_CATEGORIES_ERROR'
 export const SELECT_CATEGORY = 'SELECT_CATEGORY'
+
