@@ -145,7 +145,7 @@ class PostForm extends Component {
                                                 <button
                                                     type="submit"
                                                     disabled={submitting || invalid}
-                                                    className="postLink"
+                                                    className="button"
                                                 >
                                                     Submit
                                                     <br/>

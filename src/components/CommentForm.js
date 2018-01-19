@@ -117,7 +117,7 @@ class CommentForm extends Component {
                                         </button>
                                         <button
                                             onClick={this.props.history.goBack}
-                                            className="btn btn-secondary"
+                                            className="postLink"
                                         >
                                             back
                                             <FaTimesCircleO size={30}/>
