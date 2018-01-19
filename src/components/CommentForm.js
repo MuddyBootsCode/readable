@@ -41,6 +41,7 @@ class CommentForm extends Component {
                     type="text"
                     placeholder={field.placeholder}
                     className="form-control"
+
                 />
                 <div>{touched ? error : ' '}</div>
             </div>
@@ -86,24 +87,26 @@ class CommentForm extends Component {
                         <form onSubmit={handleSubmit(this.onSubmit.bind(this))} className="comment-form">
 
                             <div className="post-box">
-                                <div className="post">
-                                    <div className="post-header">
+                                <div className="comment">
+                                    <div className="comments-header">
                                         Author:
                                         <Field
+                                        className="comments-author-field"
                                         name="author"
                                         placeholder="Author"
                                         component={this.renderField}
                                         />
                                     </div>
-                                    <div className="post-content">
+                                    <div className="comment-content">
                                         Comment:
                                         <Field
+                                            className="comments-body-field"
                                             name="body"
                                             placeholder="What is on your mind..."
                                             component={this.renderField}
                                         />
                                     </div>
-                                    <div className="post-footer">
+                                    <div className="comment-footer">
                                         <button
                                             type="submit"
                                             disabled={submitting || invalid}

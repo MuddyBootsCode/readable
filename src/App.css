@@ -200,24 +200,35 @@ button {
 /* comments */
 
 .comment {
-    display: block;
-    width: 100%;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow-wrap: break-word;
+    overflow: auto;
     border: solid black;
     border-radius: 5px;
     height: 250px;
     font-size: 1em;
     margin: 15px 0px 15px 0px;
-    box-sizing: border-box;
-
 }
 
 .comments-header {
-    width: 100%;
+    display: flex;
+    justify-content: center;
+    border-bottom: solid black;
+    margin-bottom: 5px;
+    background-color: #ccc;
+    border-radius: 0px 0px 5px 		5px;
     text-align: center;
-    border-bottom: 1px solid #000;
-    line-height: 0.1em;
-    margin: 10px 0 20px;
-    padding-top: 20px;
+}
+
+.comment-content {
+    display: flex;
+    flex: 1;
+    flex-flow: wrap;
+    /*justify-content: center;*/
+    /*align-items: center;*/
+    width: 100%;
 }
 
 .comments-span {
@@ -230,14 +241,25 @@ button {
     width: 100%;
 }
 
-.comments-content {
-    display: block;
+.comments-body-field {
+    box-sizing: border-box;
+    display: table-cell;
     width: 100%;
 }
 
 .comments-author-field {
-    display: block;
+    box-sizing: border-box;
     width: 100%;
+}
+
+.comment-footer {
+    display: flex;
+    justify-content: space-evenly;
+    border-top: solid black;
+    margin-top: 5px;
+    background-color: #ccc;
+    border-radius: 5px 5px 0px 		0px;
+    text-align: center;
 }
 
 /* ----------- iPhone 6, 6S, 7 and 8 ----------- */
