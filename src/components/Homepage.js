@@ -57,7 +57,7 @@ class Homepage extends Component {
                             <div className="post">
                                 <div className="post-content">
                                     <Link to='/posts/new' className='postLink'>
-                                        <FaPlusSquare size={40}/>
+                                        <FaPlusSquare size={40} className='icon'/>
                                     </Link>
                                 </div>
                             </div>

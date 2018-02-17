@@ -88,7 +88,7 @@ class Comments extends Component {
                     <div className="post">
                         <div className="post-content">
                             <Link to={`/${post.id}/newcomment`} className="postLink">
-                                <FaPlusSquare size={40}/>
+                                <FaPlusSquare size={40} className="icon"/>
                             </Link>
                         </div>
                     </div>

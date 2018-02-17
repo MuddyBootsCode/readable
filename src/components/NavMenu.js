@@ -19,16 +19,16 @@ class NavMenu extends Component {
         return (
             <div className="nav">
                 <div className="nav-links">
-                    <NavLink exact to="/" activeStyle={{textDecoration: 'underline', fontSize: '2em', color: 'red'}}>
+                    <NavLink exact to="/" activeStyle={{textDecoration: 'underline', fontSize: '2em', color: '#390cef'}}>
                         All
                     </NavLink>
-                    <NavLink exact to="/react" activeStyle={{textDecoration: 'underline', fontSize: '2em', color: 'red'}}>
+                    <NavLink exact to="/react" activeStyle={{textDecoration: 'underline', fontSize: '2em', color: '#390cef'}}>
                         React
                     </NavLink>
-                    <NavLink exact to="/redux" activeStyle={{textDecoration: 'underline', fontSize: '2em', color: 'red'}}>
+                    <NavLink exact to="/redux" activeStyle={{textDecoration: 'underline', fontSize: '2em', color: '#390cef'}}>
                         Redux
                     </NavLink>
-                    <NavLink exact to="/udacity" activeStyle={{textDecoration: 'underline', fontSize: '2em', color: 'red'}}>
+                    <NavLink exact to="/udacity" activeStyle={{textDecoration: 'underline', fontSize: '2em', color: '#390cef'}}>
                         Udacity
                     </NavLink>
                 </div>
@@ -39,10 +39,12 @@ class NavMenu extends Component {
                         &nbsp;
                         <br/>
                         &nbsp;
+                        &nbsp;
                     <button onClick={() => this.sortByDate()}>
                         <FaClockO color='white' size={30}/>
                     </button>
                         <br/>
+                        &nbsp;
                         &nbsp;
                     <button onClick={() => this.sortByPopularity()}>
                         <FaThumbsDown color='white' size={30}/>

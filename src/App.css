@@ -1,6 +1,7 @@
 body {
     margin: 40px;
     height: 100%;
+    background-color: #ebe8e8;
 }
 
 .box {
@@ -68,7 +69,9 @@ a {
     border-radius: 5px;
     padding: 20px;
     font-size: 2em;
-    background-color: #ccc;
+    background-color: #390cef;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.5);
+
 }
 
 .title-box2 {
@@ -112,11 +115,13 @@ a {
 .content-location {
     grid-column: 3 / 12;
     grid-row: 3 / -1;
-    border: solid red;
+    border: solid #390cef;
     border-radius: 5px;
     padding: 20px;
     font-size: 150%;
     margin: 10px;
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.5);
 }
 
 .post-box {
@@ -139,7 +144,7 @@ a {
     height: 250px;
     font-size: 1em;
     margin: 15px 0px 15px 0px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .post-content {
@@ -149,6 +154,7 @@ a {
     justify-content: center;
     align-items: center;
     width: 100%;
+    text-shadow: 1px 1px 2px grey;
 }
 
 .post-header {
@@ -171,6 +177,11 @@ a {
     border-radius: 5px 5px 0px 		0px;
     text-align: center;
     text-shadow: 2px 2px 4px grey;
+}
+
+.icon {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
 }
 
 .form-control {
