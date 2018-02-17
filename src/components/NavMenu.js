@@ -32,16 +32,22 @@ class NavMenu extends Component {
                         Udacity
                     </NavLink>
                 </div>
+
                 <div className="sort-buttons">
-
+                        &nbsp;
                     <span>Sort By</span>
-
+                        &nbsp;
+                        <br/>
+                        &nbsp;
                     <button onClick={() => this.sortByDate()}>
                         <FaClockO color='white' size={30}/>
                     </button>
+                        <br/>
+                        &nbsp;
                     <button onClick={() => this.sortByPopularity()}>
                         <FaThumbsDown color='white' size={30}/>
                     </button>
+
                 </div>
 
             </div>

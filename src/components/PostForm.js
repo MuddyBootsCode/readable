@@ -117,13 +117,13 @@ class PostForm extends Component {
                                             Author:
                                             <Field
                                                 name="author"
-                                                placeholder="Author"
+                                                placeholder="Your Name Here"
                                                 component={this.renderField}
                                             />
                                             Title:
                                             <Field
                                                 name="title"
-                                                placeholder="Title"
+                                                placeholder="Catchy Title"
                                                 component={this.renderField}
                                             />
                                             Post Category:

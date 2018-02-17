@@ -38,6 +38,12 @@ body {
 
 }
 
+.sort-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 a {
     color: white;
     text-decoration: none;
@@ -93,12 +99,14 @@ a {
 .title-box {
     font-size: 9em;
     font-family: "Times New Roman", Times, serif;
+    text-shadow: 2px 2px 4px #000000;
 
 }
 
 .letter-box {
     font-size: 7em;
     font-family: "Times New Roman", Times, serif;
+    text-shadow: 2px 2px 4px #000000;
 }
 
 .content-location {
@@ -131,6 +139,7 @@ a {
     height: 250px;
     font-size: 1em;
     margin: 15px 0px 15px 0px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .post-content {
@@ -150,6 +159,7 @@ a {
     background-color: #ccc;
     border-radius: 0px 0px 5px 		5px;
     text-align: center;
+    text-shadow: 2px 2px 4px grey;
 }
 
 .post-footer {
@@ -160,10 +170,12 @@ a {
     background-color: #ccc;
     border-radius: 5px 5px 0px 		0px;
     text-align: center;
+    text-shadow: 2px 2px 4px grey;
 }
 
 .form-control {
     width: 100%;
+    border-radius: 5px;
 }
 
 ul {
