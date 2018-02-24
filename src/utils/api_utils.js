@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 export const api = process.env.REACT_APP_READABLE_API_URL || axios.create({
-    baseURL: 'http://localhost:3001',
+    baseURL: 'http://portermb-readable-backend.herokuapp.com',
     headers: {
         'Content-Type': 'application/json',
         Accept: 'application/json',
