@@ -1,16 +1,6 @@
-// import api from '../utils/api_utils'
+import api from '../utils/api_utils'
 
 import axios from 'axios'
-
-const api = process.env.REACT_APP_READABLE_API_URL || axios.create({
-    baseURL: 'http://portermb-readable-backend.herokuapp.com',
-    headers: {
-        'Content-Type': 'application/json',
-        Accept: 'application/json',
-        Authorization: 'whatever'
-    }
-})
-
 
 export function fetchPosts () {
 
