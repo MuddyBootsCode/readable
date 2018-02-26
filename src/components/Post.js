@@ -66,7 +66,7 @@ class Post extends Component {
                     <div className='post-content'>
                             {post.body}
                                 <br/>
-                            -{post.author}
+                            - {post.author}
                     </div>
 
                 <div className='post-footer'>
