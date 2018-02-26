@@ -9,8 +9,6 @@ export const api = process.env.REACT_APP_READABLE_API_URL || axios.create({
     }
 })
 
-
-
 export function getComments(postId) {
     return api.get(`/posts/${postId}/comments`)
         .then(response => response.data)

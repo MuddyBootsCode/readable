@@ -1,7 +1,5 @@
 import api from '../utils/api_utils'
 
-import axios from 'axios'
-
 export function fetchPosts () {
 
     return dispatch => {
