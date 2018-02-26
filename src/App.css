@@ -153,7 +153,9 @@ a {
     flex-flow: wrap;
     justify-content: center;
     align-items: center;
+    text-align: center;
     width: 100%;
+    background-image: url("http://res.cloudinary.com/dqfo7smhl/image/upload/v1519685200/dust_scratches_ftlvgw.png");
 
 }
 
@@ -161,7 +163,6 @@ a {
     display: flex;
     justify-content: space-evenly;
     border-bottom: solid black;
-    margin-bottom: 5px;
     background-color: #ccc;
     border-radius: 0px 0px 5px 		5px;
     text-align: center;
@@ -172,7 +173,6 @@ a {
     display: flex;
     justify-content: space-evenly;
     border-top: solid black;
-    margin-top: 5px;
     background-color: #ccc;
     border-radius: 5px 5px 0px 		0px;
     text-align: center;
