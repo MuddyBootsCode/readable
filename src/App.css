@@ -164,7 +164,7 @@ a {
     display: flex;
     justify-content: space-evenly;
     border-bottom: solid black;
-    background-color: #686565;
+    background-color: #4f4f51;
     border-radius: 0px 0px 5px 		5px;
     text-align: center;
     text-shadow: 1px 1px 4px white;
@@ -174,7 +174,7 @@ a {
     display: flex;
     justify-content: space-evenly;
     border-top: solid black;
-    background-color: #686565;
+    background-color: #4f4f51;
     border-radius: 5px 5px 0px 		0px;
     text-align: center;
     text-shadow: 1px 1px 4px white;
