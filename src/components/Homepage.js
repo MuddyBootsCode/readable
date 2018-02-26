@@ -6,13 +6,8 @@ import Post from '../components/Post'
 import NavMenu from './NavMenu'
 import FaPlusSquare from 'react-icons/lib/fa/plus-square'
 import _ from 'lodash'
-import Loading from 'react-loading'
 
 class Homepage extends Component {
-
-    state = {
-        fetching: false
-    }
 
 
     componentDidMount(){
@@ -24,7 +19,6 @@ class Homepage extends Component {
 
         const { category } = this.props.match.params
         const { sortValue, posts } = this.props
-        const { fetching } = this.state
 
         let sortedPosts
         if (sortValue === 'latest') {
@@ -52,8 +46,7 @@ class Homepage extends Component {
                     <div className="letter-box title-box2">eadable</div>
                     <div className="content-location">
                         <div className="post-box">
-                            { fetching === true
-                                ? <Loading delay={200} type='spin' color='#222' className='loading' /> :
+                            {
                                 _.map(shownPosts, post => {
                                     return (
                                         <Post key={post.id} post={post}/>
