@@ -163,20 +163,20 @@ a {
     display: flex;
     justify-content: space-evenly;
     border-bottom: solid black;
-    background-color: #ccc;
+    background-color: #686565;
     border-radius: 0px 0px 5px 		5px;
     text-align: center;
-    text-shadow: 2px 2px 4px grey;
+    text-shadow: 1px 1px 4px white;
 }
 
 .post-footer {
     display: flex;
     justify-content: space-evenly;
     border-top: solid black;
-    background-color: #ccc;
+    background-color: #686565;
     border-radius: 5px 5px 0px 		0px;
     text-align: center;
-    text-shadow: 2px 2px 4px grey;
+    text-shadow: 1px 1px 4px white;
 }
 
 .icon {
@@ -186,6 +186,7 @@ a {
 
 .form-control {
     width: 100%;
+    height: auto;
     border-radius: 5px;
 }
 
