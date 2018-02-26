@@ -43,7 +43,7 @@ class Comments extends Component {
                             _.map(sortedComments, comment => {
                                 return (
                                     <div key={comment.id} className='post'>
-                                        <div className='post-header'>{comment.author}</div>
+                                        <div className='post-header'>Comment by - {comment.author}</div>
                                             <div className='post-content'>
                                                 {comment.body}
                                             </div>
