@@ -10,6 +10,7 @@ body {
     border-radius: 5px;
     padding: 20px;
     font-size: 2em;
+    border: solid black;
     background-image: url("http://res.cloudinary.com/dqfo7smhl/image/upload/v1519686932/tweed_v20rqu.png");
 }
 
