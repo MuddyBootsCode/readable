@@ -6,11 +6,11 @@ body {
 }
 
 .box {
-    background-color: #ccc;
     color: #000;
     border-radius: 5px;
     padding: 20px;
     font-size: 2em;
+    background-image: url("http://res.cloudinary.com/dqfo7smhl/image/upload/v1519686932/tweed_v20rqu.png");
 }
 
 
@@ -27,9 +27,9 @@ body {
     display: -webkit-flex;
     flex-direction: row;
     flex-flow: wrap;
-    /*justify-content: space-around;*/
     align-items: center;
     font-size: .75em;
+    text-shadow: 1px 1px 4px black;
 }
 
 .nav-links {
@@ -44,6 +44,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    text-shadow: 1px 1px 4px black;
 }
 
 a {
@@ -166,7 +167,8 @@ a {
     border-bottom: solid black;
     border-radius: 0px 0px 5px 	5px;
     text-align: center;
-    text-shadow: 1px 1px 4px white;
+    color: white;
+    text-shadow: 1px 1px 4px black;
     background-image: url("http://res.cloudinary.com/dqfo7smhl/image/upload/v1519686932/tweed_v20rqu.png");
 }
 
@@ -176,7 +178,8 @@ a {
     border-top: solid black;
     border-radius: 5px 5px 0px 	0px;
     text-align: center;
-    text-shadow: 1px 1px 4px white;
+    color: white;
+    text-shadow: 1px 1px 4px black;
     background-image: url("http://res.cloudinary.com/dqfo7smhl/image/upload/v1519686932/tweed_v20rqu.png");
 }
 
