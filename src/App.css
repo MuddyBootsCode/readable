@@ -318,9 +318,13 @@ and (-webkit-min-device-pixel-ratio: 2) {
         width: auto;
         display: grid;
         grid-gap: 5px;
-        grid-template-columns: repeat(10, minmax(auto, auto));
-        grid-template-rows: repeat(12, minmax(auto, auto));
+        grid-template-columns: repeat(10, minmax(15px, auto));
+        grid-template-rows: repeat(12, minmax(80px, auto));
         font-size: .5em;
+    }
+
+    .sort-buttons {
+        display: none;
     }
 }
 
@@ -337,9 +341,13 @@ and (orientation: portrait) {
         width: auto;
         display: grid;
         grid-gap: 5px;
-        grid-template-columns: repeat(10, minmax(auto, auto));
-        grid-template-rows: repeat(12, minmax(auto, auto));
+        grid-template-columns: repeat(10, minmax(15px, auto));
+        grid-template-rows: repeat(12, minmax(80px, auto));
         font-size: .5em;
+    }
+
+    .sort-buttons {
+        display: none;
     }
 
 }
@@ -355,9 +363,13 @@ and (orientation: landscape) {
         width: auto;
         display: grid;
         grid-gap: 5px;
-        grid-template-columns: repeat(10, minmax(auto, auto));
-        grid-template-rows: repeat(12, minmax(auto, auto));
+        grid-template-columns: repeat(10, minmax(15px, auto));
+        grid-template-rows: repeat(12, minmax(80px, auto));
         font-size: .5em;
+    }
+
+    .sort-buttons {
+        display: none;
     }
 
 }
