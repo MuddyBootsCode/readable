@@ -106,7 +106,7 @@ a {
 .title-box {
     font-size: 9em;
     font-family: "Times New Roman", Times, serif;
-    text-shadow: 2px 2px 4px #ddd4d1;
+    text-shadow: 2px 2px 4px #000000;
     text-align: center;
 
 }
@@ -114,7 +114,7 @@ a {
 .letter-box {
     font-size: 7em;
     font-family: "Times New Roman", Times, serif;
-    text-shadow: 2px 2px 4px #ddd4d1;
+    text-shadow: 2px 2px 4px #000000;
 }
 
 .content-location {
@@ -326,6 +326,20 @@ and (-webkit-min-device-pixel-ratio: 2) {
     .sort-buttons {
         display: none;
     }
+
+    .title-box {
+        font-size: 9em;
+        font-family: "Times New Roman", Times, serif;
+        text-shadow: 2px 2px 4px #ddd4d1;
+        text-align: center;
+
+    }
+
+    .letter-box {
+        font-size: 7em;
+        font-family: "Times New Roman", Times, serif;
+        text-shadow: 2px 2px 4px #ddd4d1;
+    }
 }
 
 
@@ -350,6 +364,20 @@ and (orientation: portrait) {
         display: none;
     }
 
+    .title-box {
+        font-size: 9em;
+        font-family: "Times New Roman", Times, serif;
+        text-shadow: 2px 2px 4px #ddd4d1;
+        text-align: center;
+
+    }
+
+    .letter-box {
+        font-size: 7em;
+        font-family: "Times New Roman", Times, serif;
+        text-shadow: 2px 2px 4px #ddd4d1;
+    }
+
 }
 
 /* Landscape */
@@ -370,6 +398,20 @@ and (orientation: landscape) {
 
     .sort-buttons {
         display: none;
+    }
+
+    .title-box {
+        font-size: 9em;
+        font-family: "Times New Roman", Times, serif;
+        text-shadow: 2px 2px 4px #ddd4d1;
+        text-align: center;
+
+    }
+
+    .letter-box {
+        font-size: 7em;
+        font-family: "Times New Roman", Times, serif;
+        text-shadow: 2px 2px 4px #ddd4d1;
     }
 
 }
