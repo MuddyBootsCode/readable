@@ -106,7 +106,7 @@ a {
 .title-box {
     font-size: 9em;
     font-family: "Times New Roman", Times, serif;
-    text-shadow: 2px 2px 4px #000000;
+    text-shadow: 2px 2px 4px #ddd4d1;
     text-align: center;
 
 }
@@ -114,7 +114,7 @@ a {
 .letter-box {
     font-size: 7em;
     font-family: "Times New Roman", Times, serif;
-    text-shadow: 2px 2px 4px #000000;
+    text-shadow: 2px 2px 4px #ddd4d1;
 }
 
 .content-location {
