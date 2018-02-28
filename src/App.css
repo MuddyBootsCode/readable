@@ -314,22 +314,14 @@ and (min-device-width: 375px)
 and (max-device-width: 667px)
 and (-webkit-min-device-pixel-ratio: 2) {
 
-    nav {
-        display: flex;
-        height: 100%;
-        padding: 0;
-        margin: 0;
-        display: -webkit-box;
-        display: -moz-box;
-        display: -ms-flexbox;
-        display: -webkit-flex;
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: center;
+    .wrapper {
+        width: auto;
+        display: grid;
+        grid-gap: 5px;
+        grid-template-columns: repeat(10, minmax(auto, auto));
+        grid-template-rows: repeat(12, minmax(auto, auto));
         font-size: .5em;
-        flex-flow: wrap;
     }
-
 }
 
 
@@ -341,20 +333,13 @@ and (max-device-width: 667px)
 and (-webkit-min-device-pixel-ratio: 2)
 and (orientation: portrait) {
 
-    nav {
-        display: flex;
-        height: 100%;
-        padding: 0;
-        margin: 0;
-        display: -webkit-box;
-        display: -moz-box;
-        display: -ms-flexbox;
-        display: -webkit-flex;
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: center;
+    .wrapper {
+        width: auto;
+        display: grid;
+        grid-gap: 5px;
+        grid-template-columns: repeat(10, minmax(auto, auto));
+        grid-template-rows: repeat(12, minmax(auto, auto));
         font-size: .5em;
-        flex-flow: wrap;
     }
 
 }
@@ -366,20 +351,13 @@ and (max-device-width: 667px)
 and (-webkit-min-device-pixel-ratio: 2)
 and (orientation: landscape) {
 
-    nav {
-        display: flex;
-        height: 100%;
-        padding: 0;
-        margin: 0;
-        display: -webkit-box;
-        display: -moz-box;
-        display: -ms-flexbox;
-        display: -webkit-flex;
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: center;
+    .wrapper {
+        width: auto;
+        display: grid;
+        grid-gap: 5px;
+        grid-template-columns: repeat(10, minmax(auto, auto));
+        grid-template-rows: repeat(12, minmax(auto, auto));
         font-size: .5em;
-        flex-flow: wrap;
     }
 
 }
